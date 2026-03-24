@@ -61,3 +61,17 @@ Don't preload all references. Load what the active mode needs:
 - Courtroom: Agent definitions from `agents/courtroom/`
 - Research: Agent definitions from `agents/research/`
 - Sharpen: `logs/execution-log.md` for baseline data
+
+## Version Control
+
+The strategy engine is git-tracked at `~/.claude/plugins/local/strategy-engine/` with a remote at `github.com/Julianlapis/strategy-engine` (private).
+
+**End-of-session habit:** Before Julian closes a session that involved strategy work, suggest committing and pushing any changes to the plugin (feedback log entries, sharpen mutations, new agents, rule updates). Use:
+
+```bash
+cd ~/.claude/plugins/local/strategy-engine
+git add -A && git status --short
+# Show Julian what changed, then commit and push if he confirms
+```
+
+This keeps the plugin versioned and recoverable. The sharpen mode commits after each accepted mutation (Step 7 in sharpen/SKILL.md), but feedback log entries and manual edits accumulate between sessions and need an explicit commit.

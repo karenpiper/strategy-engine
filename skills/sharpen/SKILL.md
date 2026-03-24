@@ -128,6 +128,20 @@ Julian reviews the changelog and either:
 
 The system NEVER auto-applies changes without Julian's approval.
 
+### Step 7: Commit Changes
+
+After Julian accepts (full or partial), commit the changed files to git:
+
+```bash
+cd ~/.claude/plugins/local/strategy-engine
+git add [changed files]
+git commit -m "sharpen: [target] [baseline]→[final score] — [1-line summary of kept changes]"
+```
+
+Suggest `git push` as well, but don't push without Julian confirming. The commit is the important part; the push can wait until end of session.
+
+If Julian rejects all changes, skip this step. The changelog is still logged to `logs/sharpen/` for future reference.
+
 ## Safety Rails
 
 1. **Backup first.** Always save the original skill/agent file before any mutations.
