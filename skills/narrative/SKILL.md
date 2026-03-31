@@ -155,6 +155,23 @@ SLIDE [N]
 - Include layout notes for image moments, data viz, positioning maps.
 - The slide sequence must work as a standalone argument.
 
+### Extract, Don't Summarize (MANDATORY)
+
+The strategy doc from Phase 2 is the copy source. Slide headlines and body should be **lifted verbatim** from the strategy doc, not rewritten into shorter neutral language.
+
+- **Headline** = the sharpest sentence from the corresponding strategy doc section. Promote it directly.
+- **Body** = the 1-3 sentences from the doc that carry the most evidence or voice texture. Lift them.
+- **Source attribution** = note which strategy doc section each slide draws from.
+- **If shortening:** cut words from the original line. Don't rephrase. Replacing a specific, voiced sentence with a generic summary is a skill failure.
+
+**Anti-blandification check:** After writing all slide copy, compare each slide against its source section. Did you lose a physical verb? Flatten a rhythm? Replace a named example with an abstraction? Cut a number? If yes, restore from the source.
+
+**Why:** On 2026-03-24, a distilled essay was turned into slide copy that stripped its voice. Physical verbs became neutral summaries. Cascading rhythms became single flat sentences. This rule prevents that from recurring.
+
+### Handoff to agentic-slides
+
+If the user wants to build the deck in Paper or Figma after Phase 3, invoke `/paper-slides` (agentic-slides) with the slide-ready copy as the content file input. The agentic-slides skill has its own extraction and quality gates. Both skills must run their own quality passes — the narrative skill checks strategic quality, agentic-slides checks visual and copy quality in the design context.
+
 ---
 
 ## Phase 4: Quality Gate (MANDATORY)

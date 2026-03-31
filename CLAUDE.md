@@ -18,10 +18,14 @@ strategy-engine/
 │   ├── pressure-test/        # Single-agent adversarial critique
 │   ├── courtroom/            # Multi-agent debate engine
 │   ├── distill/              # Compress copy without losing meaning
+│   ├── insight-distill/      # Research → insights, tensions, hypotheses
+│   ├── narrative-review/     # Score narrative against brief before stakeholders
 │   ├── research/             # Deep desk research with verified sources
 │   └── sharpen/              # Autoresearch self-improvement loop
 ├── agents/
 │   ├── courtroom/            # Courtroom debate panel agents
+│   ├── distill/              # Research distillation agents
+│   ├── review/               # Narrative review agents
 │   └── research/             # Research panel agents (academic, quantitative, cultural)
 ├── rules/                    # Apply to ALL output across all modes
 │   ├── voice.md              # Voice DNA + Stop-Slop enforcement
@@ -52,9 +56,11 @@ All commands use the `/strategy:` namespace prefix.
 4. PRODUCT     /strategy:product         → Product specs, vision docs
 5. TEST        /strategy:pressure-test   → Single-agent adversarial critique
 6. DEBATE      /strategy:courtroom       → Multi-agent debate engine
-7. DISTILL     /strategy:distill        → Compress copy, merge slides, tighten
-8. RESEARCH    /strategy:research        → Deep desk research, verified sources
-9. IMPROVE     /strategy:sharpen         → Autoresearch self-improvement
+7. DISTILL     /strategy:distill          → Compress copy, merge slides, tighten
+8. INSIGHT     /strategy:insight-distill  → Research → insights, tensions, way in
+9. REVIEW      /strategy:narrative-review → Score narrative before stakeholders
+10. RESEARCH   /strategy:research         → Deep desk research, verified sources
+11. IMPROVE    /strategy:sharpen          → Autoresearch self-improvement
 ```
 
 ## Key Principles

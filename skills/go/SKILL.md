@@ -39,6 +39,8 @@ Read whatever Julian provides. Don't ask unnecessary questions.
 | "Debate this," "stress test," multi-perspective | `/strategy:courtroom` |
 | "Tighten this," "make it shorter," "cut slides," compress | `/strategy:distill` |
 | "Research this," "find evidence," "verify claim," "back this up," "find examples" | `/strategy:research` |
+| "What does the research tell us," "find the way in," "distill the research" | `/strategy:insight-distill` |
+| "Is this ready for my boss," "review the narrative," "check against the brief" | `/strategy:narrative-review` |
 | "Improve this skill," "autoresearch" | `/strategy:sharpen` |
 
 ### Step 3: Confirm and Route
