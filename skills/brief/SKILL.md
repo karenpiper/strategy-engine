@@ -10,8 +10,9 @@ description: |
 <required_reading>
 Read before doing ANY work:
 1. `feedback-log.md` — Binding corrections
-2. `rules/voice.md` — Voice rules
-3. `rules/quality-gates.md` — Quality gates (adapted for brief format)
+2. `rules/voice.md` — Two-layer voice system
+3. `~/.claude/copy-polish.md` — Layer 2: plain language, directness, jargon elimination (this skill is client-facing)
+4. `rules/quality-gates.md` — Quality gates (adapted for brief format)
 </required_reading>
 
 # /strategy:brief

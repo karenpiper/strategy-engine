@@ -2,11 +2,12 @@
 
 These rules apply to ALL output from every mode in the strategy engine. No exceptions.
 
-## Two Mandatory Layers
+## Two-Layer System
 
 ### Layer 1: Voice DNA (always on)
+Source: `~/.claude/voice-dna.md`
 
-Every sentence follows Julian's voice as it's written:
+Every sentence follows Julian's voice identity:
 
 - Contractions always (don't, can't, won't)
 - Short paragraphs (1-3 sentences max)
@@ -18,9 +19,30 @@ Every sentence follows Julian's voice as it's written:
 - Natural transitions, not mechanical ones
 - When uncertain, say so plainly
 
-### Layer 2: Stop-Slop (final pass before presenting)
+### Layer 2: Copy Polish (client-facing skills only)
+Source: `~/.claude/copy-polish.md`
 
-Run the full stop-slop checklist on every draft. Catches:
+Auto-invoked by: narrative, brief, distill (slide copy), narrative-review, agentic-slides.
+NOT invoked by: courtroom, research, pressure-test (internal tools).
+
+Covers: plain language, jargon elimination, directness, strategy-specific banned phrases, readability scoring.
+
+### Banned Phrases (fatal, Layer 1)
+
+See Julian's global CLAUDE.md and voice-dna.md for the full list. The following are common in strategy writing:
+
+- "In today's [anything]"
+- "It's important/worth noting"
+- "Delve" / "Dive into" / "Unpack"
+- "Harness" / "Leverage" / "Utilize"
+- "Landscape" / "Realm" / "Robust"
+- "Game-changer" / "Cutting-edge"
+- "Furthermore" / "Additionally" / "Moreover"
+- "This isn't X. This is Y." and ALL variations (FATAL)
+
+### Anti-Slop (Layer 1, final pass)
+
+Run the full stop-slop checklist on every draft:
 
 - False agency ("the decision emerges")
 - Narrator-from-distance voice ("a GTM engine where...")
@@ -34,40 +56,10 @@ Run the full stop-slop checklist on every draft. Catches:
 - Over-symmetric parallel construction
 - Pull-quotes trying too hard
 
-### Banned Phrases (fatal)
-
-See Julian's global CLAUDE.md for the full list. The following are especially common in strategy writing and must NEVER appear:
-
-- "In today's [anything]"
-- "It's important/worth noting"
-- "Delve" / "Dive into" / "Unpack"
-- "Harness" / "Leverage" / "Utilize"
-- "Landscape" / "Realm" / "Robust"
-- "Game-changer" / "Cutting-edge"
-- "Furthermore" / "Additionally" / "Moreover"
-- "This isn't X. This is Y." and ALL variations (FATAL)
-
-### Strategy-Specific Banned Phrases
-
-- "Consumers are looking for..." (name the specific behavior)
-- "The brand needs to meet people where they are" (name the specific place)
-- "Create meaningful connections" (connections to what, through what)
-- "In an increasingly [adjective] world" (name the specific change)
-- "Authenticity" without defining what's authentic about THIS brand
-- "Resonate with audiences" (which audiences, through what mechanism)
-- "Tap into" anything
-- "White space" without drawing the actual map
-- "Ownable" without proving no one else can claim it
-
 ## Application
 
-Both layers run on:
-- Strategy documents
-- Slide-ready copy
-- Creative briefs
-- Product specs
-- Pressure test critiques
-- Courtroom synthesis output
-- Any prose that reaches Julian
+**Layer 1 runs on everything:** strategy docs, slide copy, briefs, product specs, pressure test critiques, courtroom synthesis, any prose that reaches Julian.
 
-Score against the 5 stop-slop dimensions (Directness, Rhythm, Trust, Authenticity, Density). Below 35/50: revise before delivering.
+**Layer 2 runs on client-facing output only:** strategy docs, slide copy, briefs. Skills that auto-invoke Layer 2 include it in their required_reading.
+
+Score against both rubrics when both layers apply. Voice Score (identity, 35/50) and Polish Score (clarity, 35/50).

@@ -9,10 +9,11 @@ description: |
 <required_reading>
 Read before doing ANY work:
 1. `feedback-log.md` — Binding corrections. These override everything.
-2. `rules/voice.md` — Voice DNA + Stop-Slop rules
-3. `rules/quality-gates.md` — Scoring system and anti-patterns
-4. `rules/process.md` — Phase sequencing
-5. `references/pitch-deck-pattern.md` — C&T pitch deck structure (from Bumble, Anthropic, Xbox decks). The canonical Act 1-4 structure for all pitch narratives.
+2. `rules/voice.md` — Two-layer voice system (Layer 1: identity, Layer 2: client polish)
+3. `~/.claude/copy-polish.md` — Layer 2: plain language, directness, jargon elimination (this skill is client-facing)
+4. `rules/quality-gates.md` — Scoring system and anti-patterns
+5. `rules/process.md` — Phase sequencing
+6. `references/pitch-deck-pattern.md` — C&T pitch deck structure (from Bumble, Anthropic, Xbox decks). The canonical Act 1-4 structure for all pitch narratives.
 </required_reading>
 
 # /strategy:narrative

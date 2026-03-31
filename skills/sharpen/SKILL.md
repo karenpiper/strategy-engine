@@ -1,9 +1,12 @@
 ---
 name: sharpen
 description: |
-  Autoresearch loop that auto-improves any strategy mode or courtroom agent.
-  Runs the target repeatedly against test inputs, scores each output, makes small
-  mutations, keeps improvements, reverts regressions. Based on Karpathy's autoresearch method.
+  Manual, interactive autoresearch loop for sharpening a specific skill on demand.
+  Based on Karpathy's autoresearch method. Use when you want to sharpen a specific
+  skill right now and steer the mutations interactively.
+  NOTE: The universal auto-sharpen system (~/.claude/hooks/orchestrator/hooks/sharpen.py)
+  runs this same protocol automatically after sessions where scores drift. This skill
+  is the manual override for when you want to watch it happen and guide it.
   Use for "sharpen this mode," "improve the courtroom," "autoresearch my narrative skill."
 ---
 
@@ -115,22 +118,28 @@ STOP WHEN:
 [Full diff of the target's .md file: original vs. improved version]
 
 ### Files
-- Improved version saved to: [path] (original untouched as backup)
+- Changes applied directly to: [SKILL.md path]
 - Full run log saved to: `logs/sharpen/[target]-[date].md`
 ```
 
-### Step 6: Julian Decides
+### Step 6: Auto-Compile Results
 
-Julian reviews the changelog and either:
-- **Accepts** — the improved version replaces the original
-- **Partially accepts** — Julian picks specific changes to keep
-- **Rejects** — original stays, changelog preserved for future reference
+When run interactively via `/strategy:sharpen`, present results to Julian for review.
+When run automatically via the background hook, results auto-compile:
 
-The system NEVER auto-applies changes without Julian's approval.
+1. **Apply mutations** directly to the original SKILL.md (no `.sharpened` intermediary)
+2. **Compile learnings** to the skill's feedback file:
+   - Format: `- [sharpen-YYYY-MM-DD]: [learning]. Source: autoresearch round N.`
+3. **Log to changelog** with full diffs of kept/reverted mutations
+4. **Notify** at next session start (informational, not a gate)
+
+In interactive mode, Julian can steer mutations, skip rounds, or reject specific changes.
+In automatic mode, the loop runs unattended and auto-applies. Julian can review changelogs
+and revert anything manually.
 
 ### Step 7: Commit Changes
 
-After Julian accepts (full or partial), commit the changed files to git:
+After changes are applied, commit:
 
 ```bash
 cd ~/.claude/plugins/local/strategy-engine
@@ -138,9 +147,8 @@ git add [changed files]
 git commit -m "sharpen: [target] [baseline]→[final score] — [1-line summary of kept changes]"
 ```
 
-Suggest `git push` as well, but don't push without Julian confirming. The commit is the important part; the push can wait until end of session.
-
-If Julian rejects all changes, skip this step. The changelog is still logged to `logs/sharpen/` for future reference.
+In interactive mode, suggest `git push` but don't push without Julian confirming.
+In automatic mode (background hook), commit but do not push.
 
 ## Safety Rails
 
@@ -148,7 +156,7 @@ If Julian rejects all changes, skip this step. The changelog is still logged to 
 2. **One mutation at a time.** Never change two things simultaneously. You can't attribute improvement if you changed two variables.
 3. **Feedback log is immutable.** If a mutation contradicts a feedback log entry, revert immediately. Don't even test it.
 4. **Voice DNA is immutable.** Mutations that change the voice (add formality, remove contractions, use banned phrases) are automatically invalid.
-5. **Human in the loop.** Julian approves all final changes. The loop runs autonomously but the output is a proposal, not a fait accompli.
+5. **Changelog is the audit trail.** In interactive mode, Julian steers mutations directly. In automatic mode (background hook), changes auto-compile — the changelog and feedback files are the audit trail. Julian can review and revert anything manually.
 6. **Changelog is permanent.** Every mutation attempted, kept or reverted, is logged. When smarter models arrive, they can read the changelog and pick up where the last run left off.
 
 ## Observation

@@ -11,11 +11,12 @@ description: |
 <required_reading>
 Read before doing ANY work:
 1. `feedback-log.md` — Binding corrections from Julian
-2. `rules/voice.md` — Voice rules are enforced line-by-line
-3. `rules/quality-gates.md` — Quality gates apply
-4. `references/narrative-engines.md` — Know the narrative structures
-5. `references/anti-patterns.md` — Know the failure modes
-6. `references/pitch-deck-pattern.md` — C&T pitch deck structure (Acts 1-4, canonical from Bumble/Anthropic/Xbox)
+2. `rules/voice.md` — Two-layer voice system
+3. `~/.claude/copy-polish.md` — Layer 2: plain language, directness, jargon elimination (this skill reviews client-facing output)
+4. `rules/quality-gates.md` — Quality gates apply
+5. `references/narrative-engines.md` — Know the narrative structures
+6. `references/anti-patterns.md` — Know the failure modes
+7. `references/pitch-deck-pattern.md` — C&T pitch deck structure (Acts 1-4, canonical from Bumble/Anthropic/Xbox)
 </required_reading>
 
 # /strategy:narrative-review
