@@ -17,14 +17,33 @@ The entry point. Understand what Julian needs, route to the right mode.
 
 ## Process
 
-### Step 0: Check for Project Context
+### Step 0: Project Selection
 
-Before routing to any mode, check whether a project context exists for this work.
+**Always do this first, before anything else.**
 
-Look for `~/strategy-projects/*/project-context.md`. If none exists, ask:
-> "Do you want to set up a project folder and GitHub repo for this work first? Run `/strategy:init` to get that done in one step — or say 'skip' to proceed without it."
+Scan `~/strategy-projects/` for subdirectories that contain a `project-context.md`. List them with their client name (read from the `# Project:` heading in each context file).
 
-If the user says skip (or a project context already exists), proceed to Step 1.
+Present the list like this:
+```
+Which project are you working on?
+
+1. Taco Bell
+2. Acme Corp
+3. [New project]
+
+Or say the name / number.
+```
+
+If only one project exists, confirm it rather than listing:
+> "Working on [Client Name]? Say yes or name another project."
+
+If no projects exist yet, skip the list and ask:
+> "No projects set up yet. Want to create one now? Run `/strategy:init` — or describe what you're working on and we'll proceed without a project folder."
+
+Once the user selects a project, load `~/strategy-projects/{slug}/project-context.md` and hold it as active context for the rest of the session. Confirm:
+> "Got it — working on [Client Name]. What do you need?"
+
+Then proceed to Step 1.
 
 ### Step 1: Understand the Input
 
