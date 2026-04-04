@@ -17,6 +17,15 @@ The entry point. Understand what Julian needs, route to the right mode.
 
 ## Process
 
+### Step 0: Check for Project Context
+
+Before routing to any mode, check whether a project context exists for this work.
+
+Look for `~/strategy-projects/*/project-context.md`. If none exists, ask:
+> "Do you want to set up a project folder and GitHub repo for this work first? Run `/strategy:init` to get that done in one step — or say 'skip' to proceed without it."
+
+If the user says skip (or a project context already exists), proceed to Step 1.
+
 ### Step 1: Understand the Input
 
 Julian might provide:

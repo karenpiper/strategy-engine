@@ -149,6 +149,68 @@ Present the dossier to Julian. He decides:
 - Which contradictions to address
 - Whether to run a follow-up pass on specific gaps
 
+### Phase 6: Post-Secondary Handoff (REQUIRED after every research run)
+
+After the dossier is presented, ALWAYS ask:
+
+> "Secondary research is complete. Before we move to hypotheses — **is primary research available or planned for this engagement?**"
+
+**If YES — primary research exists or is planned:**
+Route to primary research planning mode. Ask:
+1. "What did the secondary research leave open that primary can answer?" — pull from the Gaps section of the dossier
+2. "Who are we talking to, and what do we need to learn from them?" — build a research question matrix (question → methodology → participants → format)
+3. "What's the timeline, and should hypotheses be developed now on secondary alone, or after primary is in?"
+
+Produce a **Primary Research Brief** in this format:
+
+```markdown
+## Primary Research Brief
+
+### Research Questions
+For each open question from secondary gaps:
+- **Question:** [Specific thing we need to learn]
+- **Why secondary didn't answer it:** [Gap or limitation]
+- **Method:** [Interviews / Diary study / Usability sessions / Survey / Co-creation]
+- **Who:** [Participant profile]
+- **n:** [Sample size]
+- **Format:** [Session length, protocol type]
+- **Output:** [What we'll have after]
+
+### Sequencing Note
+Which questions are highest priority if time/budget is compressed.
+Which should run first given fielding timelines (diary studies need the most lead time).
+```
+
+If a project site exists at `~/strategy-projects/{slug}/site/`, offer to populate or update `primary-research/page.tsx` with the research brief.
+
+**If NO — no primary research:**
+Acknowledge the constraint, note which hypotheses will require primary research to confirm before client commitment, and proceed directly to Phase 7.
+
+### Phase 7: Hypotheses & Provocations (always follows secondary research)
+
+Whether or not primary research is available, the next step is developing hypotheses from what the research found.
+
+Ask:
+> "Ready to develop hypotheses from this research? I'll build 5–6 testable beliefs derived from the strongest findings, each with a provocation — the daring version — and a pressure test. These become the foundation for client working sessions."
+
+Wait for confirmation, then run `/strategy:hypotheses` with the full dossier as input.
+
+**What hypotheses are:**
+- Testable beliefs derived from research findings
+- Stated as "We believe that..." — not recommendations, not conclusions
+- Each carries supporting evidence AND what challenges it (honest)
+- Confidence level: HIGH (strong evidence base) / MEDIUM (needs primary research) / SPECULATIVE (directional only)
+
+**What provocations are:**
+- The hypothesis made daring — stated as a challenge to conventional thinking
+- Written to be read aloud in a room and provoke a reaction
+- Not designed to be agreed with. Designed to surface what the client actually believes.
+
+**What the pressure test produces:**
+- A ranking of which hypotheses survived scrutiny
+- A map of client belief vs. research finding
+- The 2–3 hypotheses that become Phase 2 strategic territories
+
 ## Scoring Rubric
 
 ### Recency
@@ -205,6 +267,53 @@ Before pressure-testing, run research to find counterexamples and contradictory 
 
 ### Narrative → Research (backfill)
 After writing a narrative, Julian can flag specific claims that need sourcing. Research mode runs targeted queries on flagged claims and returns evidence to insert.
+
+### Scratchpad → Research (backfill or live queue)
+
+The strategy site scratchpad auto-saves to `outputs/scratchpad.md` in the project folder. There are two ways to route scratchpad notes to a research agent:
+
+**File-based (backfill):**
+```
+/strategy:research backfill outputs/scratchpad.md
+```
+Agent reads the file, finds questions, researches them, returns findings.
+
+**Live queue (results flow back into the browser):**
+When the user clicks "Investigate →" on a scratchpad item in the site, that item gets `agentResult.status: "queued"`. The browser polls every 3 seconds for changes.
+
+The agent processes the queue and posts results directly back to the site API:
+
+```
+Step 1: GET http://localhost:3000/api/scratchpad/results
+→ Returns { queued: [...items with agentResult.status === "queued"] }
+
+Step 2: For each queued item, research the highlighted text + note.
+
+Step 3: POST http://localhost:3000/api/scratchpad/results
+Body: {
+  "results": [
+    {
+      "id": "<item id>",
+      "result": {
+        "status": "done",
+        "summary": "One-paragraph summary of findings",
+        "findings": [
+          { "claim": "...", "source": "Author, Title, Date", "url": "https://..." },
+          { "claim": "...", "source": "...", "url": "..." }
+        ],
+        "processedAt": 1234567890000
+      }
+    }
+  ]
+}
+→ The browser polls /api/scratchpad, sees status changed to "done", shows results inline.
+```
+
+**When reading a scratchpad item:**
+1. `item.text` is the highlighted passage — treat as the claim to verify or expand
+2. `item.note` is the user's research question — this is what to answer
+3. `item.sectionLabel` is where it came from — use for context
+4. Research should return: a summary (1 paragraph), 2–4 findings with citations, source URLs
 
 ## Anti-Slop Research Rules
 

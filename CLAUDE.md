@@ -20,12 +20,14 @@ strategy-engine/
 │   ├── distill/              # Compress copy without losing meaning
 │   ├── insight-distill/      # Research → insights, tensions, hypotheses
 │   ├── narrative-review/     # Score narrative against brief before stakeholders
-│   └── research/             # Deep desk research with verified sources
+│   ├── research/             # Deep desk research with verified sources
+│   └── ecosystems/           # Ecosystem map, audit, gap analysis, persona crawl
 ├── agents/
 │   ├── courtroom/            # Courtroom debate panel agents
 │   ├── distill/              # Research distillation agents
 │   ├── review/               # Narrative review agents
-│   └── research/             # Research panel agents (academic, quantitative, cultural)
+│   ├── research/             # Research panel agents (academic, quantitative, cultural)
+│   └── ecosystems/           # Mapper, Auditor, Persona Crawler, Synthesizer
 ├── rules/                    # Apply to ALL output across all modes
 │   ├── voice.md              # Voice DNA + Stop-Slop enforcement
 │   ├── quality-gates.md      # Scoring, anti-patterns, mandatory checks
@@ -59,6 +61,7 @@ All commands use the `/strategy:` namespace prefix.
 8. INSIGHT     /strategy:insight-distill  → Research → insights, tensions, way in
 9. REVIEW      /strategy:narrative-review → Score narrative before stakeholders
 10. RESEARCH   /strategy:research         → Deep desk research, verified sources
+11. ECOSYSTEMS /strategy:ecosystems       → Map, audit, gap analysis, persona crawl
 ```
 
 ## Key Principles
