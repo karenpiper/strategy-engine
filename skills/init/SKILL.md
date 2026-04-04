@@ -426,7 +426,30 @@ Create `site/src/app/globals.css` CSS variables block with the brand palette:
 }
 ```
 
-### Step 5b: Note Vercel Root Directory Setting
+### Step 5b: Add Password Protection
+
+Every new strategy site gets password protection out of the box. Copy these files from `~/strategy-projects/taco-bell/site/src/` as the template:
+
+**Files to copy and adapt:**
+- `middleware.ts` — intercepts all requests, checks auth cookie against `SITE_PASSWORD` env var (default: `codeandtheory`). Only `/login` and `/api/auth` are public.
+- `app/login/page.tsx` — simple password form. Update the brand color on the submit button.
+- `app/api/auth/route.ts` — POST to verify password + set cookie, DELETE to clear cookie (logout).
+- `app/api/settings/password/route.ts` — POST to update `.env.local` locally and issue a refreshed cookie.
+- `app/(strategy)/settings/page.tsx` — password change form + sign-out. Update brand color. Add a Settings link in the sidebar footer of `StrategyShell.tsx`.
+
+**Default password:** `codeandtheory`
+
+**Create `.env.local`** (gitignored) in `site/`:
+```
+SITE_PASSWORD=codeandtheory
+ANTHROPIC_API_KEY=sk-ant-...
+```
+
+**How password change works:**
+- Local dev: Settings page POSTs to `/api/settings/password` → updates `.env.local` immediately, issues new cookie.
+- Vercel (production): User updates `SITE_PASSWORD` in Vercel → Project Settings → Environment Variables and redeploys. The Settings page shows this instruction inline.
+
+### Step 5c: Note Vercel Root Directory Setting
 
 `rootDirectory` is a Vercel **dashboard setting**, not a `vercel.json` property. Do NOT create a `vercel.json` for this — it will fail schema validation.
 
