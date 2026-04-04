@@ -69,6 +69,24 @@ Use when: testing how the ecosystem serves specific audiences, validating person
 Mapper runs on 2-3 competitors. Auditor compares channel presence and quality.
 Use when: competitive brief, relaunch planning, gap-in-market analysis.
 
+### Workflow E: Buyer-Channel Gap Analysis
+Takes the brand's existing ecosystem map and a set of personas or a strategic brief, then maps where buyers actually are in their evaluation journey vs. where the brand has presence. The output is a gap matrix: moments where buyers are active and the brand is absent, moments where the brand is present but buyers aren't evaluating, and moments of actual overlap.
+
+**This workflow is the specific answer to the brief "IBM lacks presence in moments where the B2B buyer is assessing their options."**
+
+Use when:
+- The brand has a strategic brief that names a specific buyer type or evaluation moment
+- A persona set exists (from `/persona:generate-persona` or a persona document)
+- The audit finding is not "we have gaps" but "we're not in the room when buyers are deciding"
+
+The Persona Crawler runs Workflow E: starting from buyer search behavior, not from the brand's channel list. The output maps:
+1. **Evaluation channels** — where the buyer actually researches and compares options (AI search, peer review sites, analyst reports, community forums, trade media)
+2. **Brand presence at those channels** — is the brand there? What does it say?
+3. **Absence findings** — moments where competitors appear and the brand doesn't
+4. **Presence-but-irrelevant findings** — channels where the brand has high investment but buyers don't evaluate there (Facebook for B2B enterprise is the clearest example)
+
+Output format: a matrix scored by: Buyer Presence (how often does the persona use this channel in evaluation?) × Brand Presence (how visible and effective is the brand there?). The most urgent quadrant: high buyer presence, low brand presence.
+
 ## Process
 
 ### Phase 0: Intake
@@ -127,6 +145,12 @@ RENTED MEDIA
   [ ] GitHub — [stars, activity, if applicable]
   [ ] [other platforms found]
 
+AEO/GEO — AI SEARCH (always audit this category)
+  [ ] Google AI Overviews — [how brand appears in AI-generated summaries for category queries]
+  [ ] ChatGPT / Bing Copilot — [how brand is described when users ask AI about the category]
+  [ ] Perplexity / Answer Engines — [which pages are cited as sources; product vs. editorial]
+  [ ] Other LLMs (Claude, Gemini) — [consistency of brand representation across models]
+
 CHANNELS NOT FOUND (expected for this category)
   [ ] [channels competitors have that this brand doesn't]
 ```
@@ -150,6 +174,47 @@ Severity levels for findings:
 - **HIGH** — Significant gap or friction. Fix this quarter.
 - **MEDIUM** — Opportunity. Fix when resourced.
 - **LOW** — Polish. Fix when convenient.
+
+**The auditor does not wait for all channels before returning findings.** It surfaces critical issues as they're found.
+
+#### Confidence Scoring (required for each channel)
+
+Every audited channel must include a `confidence` rating. This appears as a badge on every channel card and finding — ensuring findings are clearly labeled as validated facts, directional observations, or unverified gaps.
+
+| Level | When to use | Display |
+|-------|-------------|---------|
+| `verified` | Confirmed directly from the source — URL checked, data pulled | ✓ Verified (green) |
+| `observed` | Inferred from available public signals; directionally reliable but not measured | ~ Observed (yellow) |
+| `unverified` | Could not be confirmed — this is a potential gap, not a fact | ? Unverified (gray) |
+
+**Rules:**
+- Never state an absence as a fact (`confidence: verified`) if you could not directly verify the channel was checked and found inactive. An unverifiable absence is `unverified`.
+- `observed` applies to findings from AI search testing, social signal inference, or platform behavior — real signals, but not source-level data.
+- Every `unverified` finding must include a note in the `finding` field or `fix` field specifying what would be needed to verify it.
+
+#### Channel Preview Data (required for each channel)
+
+Every audited channel must include a `channel_preview` block for use in interactive dashboards. This is not optional — it powers the clickable modal cards in the ecosystem visualization.
+
+```json
+{
+  "recentContent": "Specific example of what was found — a real post, headline, quote, or page copy. Not a description of the channel.",
+  "contentDate": "Date of the content example (if verifiable)",
+  "stats": [
+    { "label": "Short label", "value": "Specific value — number, rating, comparison" }
+  ],
+  "takeaways": [
+    "First takeaway — specific, actionable, based on evidence",
+    "Second takeaway",
+    "Third takeaway"
+  ]
+}
+```
+
+Rules:
+- `recentContent` must be specific — quote actual copy, headlines, or data. Never summarize generically.
+- `stats` should have 2–4 items. Include competitor benchmarks where relevant.
+- `takeaways` should be 2–3 items. Each must be specific enough to act on. "Messaging is weak" is not a takeaway.
 
 **The auditor does not wait for all channels before returning findings.** It surfaces critical issues as they're found.
 
@@ -216,6 +281,7 @@ Log per `rules/observation.md`.
 3. **No persona crawl finding without a moment.** "The developer persona is frustrated" is not a finding. Name the touchpoint, the specific friction, and what the persona expected instead.
 4. **No "could improve" without specifying how.** Vague upgrade suggestions are noise. Name the specific change.
 5. **No inventory item without verification.** A channel listed as "active" means the agent checked it and found recent content. Not an assumption.
+6. **No timelines in recommendations.** Do not include execution timelines, sprint estimates, or "within X weeks" language in action plans. Severity levels (CRITICAL / HIGH / MEDIUM / LOW) carry the urgency signal — timelines are for the client to set.
 
 ## Integration with Other Modes
 
