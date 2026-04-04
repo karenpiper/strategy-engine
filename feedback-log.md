@@ -9,6 +9,16 @@ Automated improvements from /strategy:sharpen NEVER override entries in the cano
 
 ---
 
+## 2026-04-04: Encode all project session changes into the plugin
+
+**The rule:** Any change made during a client project session — new patterns, new page types, nav structure updates, API variations, workflow decisions — must be encoded into the relevant plugin skill(s) before the session ends. Do this automatically unless Karen explicitly says not to.
+
+**Why:** The plugin is the long-term memory. If a pattern is only in the project repo, it gets lost. If it's in the plugin, it carries forward to every future project.
+
+**How to apply:** At the end of any session where new patterns were established (new page type, nav change, data model, API pattern, research structure, etc.), identify which skill(s) are affected and update them. If it's a new enough pattern that it doesn't fit an existing skill, note it in the feedback log and flag it to Karen.
+
+---
+
 ## 2026-03-18: Skipped Voice DNA + Stop-Slop quality gate on slide copy
 
 **What happened:** Wrote the strategy doc and scored it (Phase 4), but treated the score as a rubber stamp instead of doing a real line-by-line audit. Then wrote 28 slides of slide-ready copy and presented it without running either quality layer. Julian caught it.
