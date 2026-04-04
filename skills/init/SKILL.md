@@ -171,54 +171,75 @@ Update `StrategyShell.tsx` for each project:
 - Update `NAV` array with the standard group structure and correct hrefs (see nav template below)
 - Update `PAGE_LABELS` to match
 
-**Standard NAV group template:**
+**Canonical NAV structure — flat items, not grouped:**
+
+The nav is a flat ordered list of `NavItem` entries. No group headers. Items with children use an expand/collapse chevron. All sections collapsed on load — user expands manually.
 
 ```typescript
-const NAV = [
+type NavChild = { label: string; href: string }
+type NavItem = {
+  label: string
+  href?: string        // if absent, item is expand-only (clicking label toggles)
+  expandable?: boolean
+  disabled?: boolean   // greyed out, not clickable
+  comingSoon?: boolean // greyed out + "soon" badge
+  children?: NavChild[]
+}
+
+const NAV_ITEMS: NavItem[] = [
+  { label: 'Client Brief',         href: '/client-brief' },
+  { label: 'Assignment Overview',  href: '/research-assignment' },
   {
-    group: 'Brief',
-    items: [
-      { label: 'Research Assignment', href: '/research-assignment' },
+    label: 'Secondary Research',
+    expandable: true,
+    // children: one entry per research section, dossier first
+    children: [
+      { label: 'Research Dossier',         href: '/research-dossier' },
+      // ... research sub-sections at /research/[slug]
+    ],
+  },
+  { label: 'Primary Research',     disabled: true },  // grey if not conducted
+  { label: 'Hypotheses & Prep',    href: '/hypothesis-prep' },
+  {
+    label: 'Personas',
+    href: '/personas',     // navigates to Persona Lab
+    expandable: true,
+    children: [
+      // one entry per persona at /personas/[slug]
     ],
   },
   {
-    group: 'Research',
-    items: [
-      { label: 'Research Dossier',  href: '/research-dossier' },   // primary synthesized view
-      { label: 'Research Library',  href: '/research-library' },   // source section hub
-      { label: 'Ecosystem Audit',   href: '/ecosystem-audit' },
+    label: 'Strategy Directions',
+    expandable: true,
+    children: [
+      { label: 'Direction 1',   href: '/narrative-brief' },
+      { label: 'Direction 2',   href: '/narrative-v2' },
+      { label: 'Audience Test', href: '/tissue-session' },
     ],
   },
+  { label: 'Ecosystem',            href: '/ecosystem-audit' },
+  { label: 'Journey',              comingSoon: true },
   {
-    group: 'Strategy',
-    items: [
-      { label: 'Narrative — V2',    href: '/narrative-v2' },
-      { label: 'Narrative — V1',    href: '/narrative-brief' },
-    ],
-  },
-  {
-    group: 'Audience',
-    items: [
-      { label: 'Directions Review', href: '/tissue-session' },
-      { label: 'Personas',          href: '/personas' },
-    ],
-  },
-  {
-    group: 'Check-In',
-    items: [
-      // Add deck and prep pages as they're created
-    ],
-  },
-  {
-    group: 'Archive',
-    items: [
-      // Add courtroom sessions as they complete
+    label: 'Archive',
+    expandable: true,
+    children: [
+      // courtroom sessions added as they complete
     ],
   },
 ]
 ```
 
-**Brief is always the first group.** The Research Assignment page holds the original brief/scope document. The Research Dossier (synthesized view) is listed before the Research Library (raw source hub) — the dossier is what someone should read first.
+**Nav order is canonical:** Client Brief → Assignment Overview → Secondary Research → Primary Research → Hypotheses → Personas → Strategy Directions → Ecosystem → Journey → Archive. This reflects the linear progression of strategy work.
+
+**Primary Research:** If primary research was not conducted for this engagement, mark it `disabled: true`. It will appear greyed out in the nav without a hover state or click target.
+
+**Secondary Research children:** Each section of the source research document gets its own page at `/research/[slug]`. The dossier (synthesis) is always listed first. Use `data/research-sections.ts` to define sections — the dynamic page at `app/research/[section]/page.tsx` renders them. Populate the `content` field per section when source material is available.
+
+**Personas expandable:** The parent item links to `/personas` (Persona Lab). Clicking the chevron expands individual persona links. Each persona lives at `/personas/[slug]`.
+
+**Items with both href and children:** Clicking the label navigates; clicking the chevron toggles children. Use this pattern for Personas (and any other section that has both an index page and sub-pages).
+
+**Items with children but no href:** Clicking anywhere (label or chevron) toggles children. Use this for Secondary Research, Strategy Directions, Archive — sections with no standalone landing page.
 
 **Nav sub-items (for Personas and other multi-page sections):**
 

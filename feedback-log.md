@@ -9,6 +9,21 @@ Automated improvements from /strategy:sharpen NEVER override entries in the cano
 
 ---
 
+## 2026-04-04: Investigate API — unwrap { item } wrapper from Panel
+
+**The bug:** `Panel.tsx` sends `{ item: ScratchItem }` as the POST body to `/api/investigate`. The route was destructuring `{ text, sectionLabel, note, contexts }` directly from the body — all undefined, causing Claude to receive "undefined" as the quote.
+
+**The fix:** In the investigate route, unwrap before destructuring:
+```typescript
+const body = await request.json()
+const src = body.item ?? body  // support both { item } and flat { text, ... }
+const { text, sectionLabel, note, contexts } = src
+```
+
+**How to apply:** Whenever writing an `/api/investigate` route, always unwrap `body.item ?? body` before extracting fields. The Panel will always send the full `ScratchItem` as `{ item }`.
+
+---
+
 ## 2026-04-04: Encode all project session changes into the plugin
 
 **The rule:** Any change made during a client project session — new patterns, new page types, nav structure updates, API variations, workflow decisions — must be encoded into the relevant plugin skill(s) before the session ends. Do this automatically unless Karen explicitly says not to.
