@@ -36,12 +36,13 @@ strategy-engine/
 │   ├── brand-voice/          # Brand voice discovery from owned content audit
 │   ├── campaign-planning/    # Campaign architecture, channel logic, content system
 │   ├── performance-report/   # Measurement framework builder + results interpreter
-│   └── user-journey/         # Mindset-based journey map — portrait, phases, human voice narratives
+│   ├── user-journey/         # Mindset-based journey map — portrait, phases, human voice narratives
+│   └── audience-map/         # Audience sizing, spending power, influence mapping — B2B + B2C
 ├── agents/
 │   ├── courtroom/            # Courtroom debate panel agents
 │   ├── distill/              # Research distillation agents
 │   ├── review/               # Narrative review agents
-│   ├── research/             # Research panel agents (academic, quantitative, cultural)
+│   ├── research/             # Research panel agents (academic, quantitative, cultural, business, analyst)
 │   └── ecosystems/           # Mapper, Auditor, Persona Crawler, Synthesizer
 ├── rules/                    # Apply to ALL output across all modes
 │   ├── voice.md              # Voice DNA + Stop-Slop enforcement
@@ -96,6 +97,7 @@ All commands use the `/strategy:` namespace prefix.
 19. CAMPAIGN   /strategy:campaign-planning  → Campaign architecture + channel logic
 20. MEASURE    /strategy:performance-report → Measurement framework + results read
 21. JOURNEY    /strategy:user-journey      → Mindset-based journey map
+22. AUDIENCE   /strategy:audience-map     → Audience sizing, spending, influence — B2B + B2C
 ```
 
 ## Key Principles

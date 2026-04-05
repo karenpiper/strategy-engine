@@ -143,6 +143,7 @@ After scaffolding, set up the standard multi-page strategy site architecture:
 - `src/app/(strategy)/research-library/page.tsx` — Research Library (hub indexing all source sections)
 - `src/app/(strategy)/primary-research/page.tsx` — Primary Research (planning + scratchpad questions)
 - `src/app/(strategy)/hypotheses/page.tsx` — Hypotheses & Provocations + Working Session view
+- `src/app/(strategy)/audience-map/page.tsx` — **Audience Map**: scored segment table + 2×2 matrix (Spending Power vs. Influence Power, bubble size = Reach). Reads from a static `SEGMENTS` data object defined inline. Links to persona pages when they exist. Sits between Hypotheses and Personas in the nav.
 - `src/app/(strategy)/personas/page.tsx` — **Persona Lab**: multi-persona simultaneous chat, full-height two-column layout, one input fires all personas in parallel. This is the `/personas` index.
 - `src/app/(strategy)/personas/[persona-slug]/page.tsx` — **Individual persona page**: uses `PersonaPageClient`, one file per persona with the full `PersonaDef` data object inline.
 - `src/app/(strategy)/flow-audit/page.tsx` — **Flow Audit**: wave-by-wave progress tracker. Reads from `outputs/flow-audit.json`. Shows ownership label, status, interaction history per wave, measurement thread state, and any loops triggered. Always scaffolded — even if wave-based work hasn't started yet.
@@ -244,6 +245,7 @@ const NAV_ITEMS: NavItem[] = [
   },
   { label: 'Primary Research',     disabled: true },  // grey if not conducted
   { label: 'Hypotheses & Prep',    href: '/hypothesis-prep' },
+  { label: 'Audience Map',          href: '/audience-map' },
   {
     label: 'Personas',
     href: '/personas',     // navigates to Persona Lab
@@ -274,7 +276,7 @@ const NAV_ITEMS: NavItem[] = [
 ]
 ```
 
-**Nav order is canonical:** Client Brief → Assignment Overview → Secondary Research → Primary Research → Hypotheses → Personas → Strategy Directions → Ecosystem → Journey → Flow Audit → Archive. This reflects the linear progression of strategy work. Flow Audit sits near the end because it tracks the full engagement — it's most useful after Wave 2 onward.
+**Nav order is canonical:** Client Brief → Assignment Overview → Secondary Research → Primary Research → Hypotheses → Audience Map → Personas → Strategy Directions → Ecosystem → Journey → Flow Audit → Archive. This reflects the linear progression of strategy work. Flow Audit sits near the end because it tracks the full engagement — it's most useful after Wave 2 onward.
 
 **Primary Research:** If primary research was not conducted for this engagement, mark it `disabled: true`. It will appear greyed out in the nav without a hover state or click target.
 
