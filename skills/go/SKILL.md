@@ -90,6 +90,7 @@ Read whatever the user provides. Don't ask unnecessary questions.
 | "Competitive brief," "what the competitive landscape means for strategy," post-competitive-analysis | `/strategy:competitive-brief` |
 | "Plan the campaign," "how do we execute," "build the campaign structure" | `/strategy:campaign-planning` |
 | "Build a measurement framework," "what should we track," "read the results," "did the campaign work" | `/strategy:performance-report` |
+| "Map the journey," "user journey," "buying journey," "journey mapping," "how does the buyer move through this" | `/strategy:user-journey` |
 
 **When in doubt about wave vs. standalone:** If there's an active project with a `flow-audit.json` and Wave 1 is complete or in-progress, bias toward the wave-based flow. Check `flow-audit.json` status to determine which wave to route to.
 

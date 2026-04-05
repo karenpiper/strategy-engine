@@ -35,7 +35,8 @@ strategy-engine/
 │   ├── competitive-brief/    # Competitive synthesis → strategic competitive brief
 │   ├── brand-voice/          # Brand voice discovery from owned content audit
 │   ├── campaign-planning/    # Campaign architecture, channel logic, content system
-│   └── performance-report/   # Measurement framework builder + results interpreter
+│   ├── performance-report/   # Measurement framework builder + results interpreter
+│   └── user-journey/         # Mindset-based journey map — portrait, phases, human voice narratives
 ├── agents/
 │   ├── courtroom/            # Courtroom debate panel agents
 │   ├── distill/              # Research distillation agents
@@ -94,6 +95,7 @@ All commands use the `/strategy:` namespace prefix.
 18. VOICE      /strategy:brand-voice        → Brand voice discovery from owned content
 19. CAMPAIGN   /strategy:campaign-planning  → Campaign architecture + channel logic
 20. MEASURE    /strategy:performance-report → Measurement framework + results read
+21. JOURNEY    /strategy:user-journey      → Mindset-based journey map
 ```
 
 ## Key Principles

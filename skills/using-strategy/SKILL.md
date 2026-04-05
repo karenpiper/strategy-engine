@@ -53,6 +53,7 @@ Before starting strategy work, decide which mode applies:
 | "competitive brief," "what does the landscape mean for strategy" | `/strategy:competitive-brief` |
 | "plan the campaign," "how do we execute," "build the campaign structure" | `/strategy:campaign-planning` |
 | "build a measurement framework," "what should we track," "read the results" | `/strategy:performance-report` |
+| "map the journey," "user journey," "buying journey," "how does the buyer move through this" | `/strategy:user-journey` |
 | "initialize a project," "set up a new project," "new strategy project" | `/strategy:init` |
 | "start a new engagement," "let's frame this," start from scratch | `/strategy:wave-frame` |
 | "start gathering," "let's research," "begin Wave 2" | `/strategy:wave-gather` |
