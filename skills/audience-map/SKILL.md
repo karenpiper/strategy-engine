@@ -2,16 +2,16 @@
 name: audience-map
 description: |
   Audience sizing, spending power, and influence mapping — for B2B and B2C.
-  Use before building personas to determine which segments have the most strategic
+  Use before building audience profiles to determine which segments have the most strategic
   opportunity and influence. Produces a scored, ranked audience map that tells you
-  which segments to prioritize for persona development, media investment, and
+  which segments to prioritize for audience profile development, media investment, and
   strategic focus.
 version: 1.0.0
 ---
 
 # /strategy:audience-map
 
-Map the full audience landscape before building personas. This skill produces a scored, ranked view of every relevant segment — by size, spending power, and influence — so strategic resources go to the segments that actually matter.
+Map the full audience landscape before building audience profiles. This skill produces a scored, ranked view of every relevant segment — by size, spending power, and influence — so strategic resources go to the segments that actually matter.
 
 ## When to use
 
@@ -19,7 +19,7 @@ Run this before `/persona-engine:generate-persona`. The audience map answers:
 - Who are all the relevant audiences for this brand or category?
 - How big is each segment, and how much do they spend?
 - Who influences whom — and how far does that influence travel?
-- Which segments should we prioritize for persona development?
+- Which segments should we prioritize for audience profile development?
 - Where is the untapped opportunity?
 
 ## Required Inputs
@@ -84,6 +84,8 @@ How far does this segment's opinion, behavior, or recommendation travel? Score t
 | 5–6 | Moderate influence — respected within peer group, limited external reach |
 | 3–4 | Low influence — mostly self-contained, limited recommendation behavior |
 | 1–2 | Minimal influence — follows others; does not originate opinions |
+
+> **Note on secondary audiences:** Analysts, media, policymakers, partners, and channel segments typically score 6–9 on Influence Power but score lower on Spending Power — often 1–4. This high-influence / low-spend pattern is the defining characteristic of the secondary tier. These segments shape perception and enable or block primary buyer decisions, but they are not the transacting audience. Score them honestly on both dimensions; do not inflate Spending Power to justify their strategic importance.
 
 **4. Accessibility**
 How reachable is this segment via the brand's available channels, content, and sales motions?
@@ -207,26 +209,28 @@ Produce the ranked audience map:
 
 ## Priority Ranking
 
-| Rank | Segment | Composite Score | Reach | Spending | Influence | Fit | Confidence |
-|------|---------|----------------|-------|----------|-----------|-----|------------|
-| 1 | [name] | | | | | | |
-| 2 | [name] | | | | | | |
-| ... | | | | | | | |
+| Rank | Segment | Tier | Composite Score | Reach | Spending | Influence | Fit | Confidence |
+|------|---------|------|----------------|-------|----------|-----------|-----|------------|
+| 1 | [name] | | | | | | | |
+| 2 | [name] | | | | | | | |
+| ... | | | | | | | | |
 
 ## Strategic Read
 
 [3–5 paragraphs: what the ranking reveals, where the tension is, which segments are
-being underserved or overserved, what this means for persona prioritization]
+being underserved or overserved, what this means for audience profile prioritization]
 
-## Persona Development Recommendations
+Secondary audiences are shown in the ranking table but treated as a separate group — they do not compete with primary audiences for composite score ranking. Primary audiences (direct buyers, high-frequency transactors) are ranked first by composite score. Secondary audiences (analysts, media, policymakers, partners, channel) follow as a distinct group below, ranked among themselves. This separation ensures that a highly influential but low-spending secondary audience does not displace a high-value primary buyer from the top of the priority list.
 
-Based on this map, build personas in this order:
+## Audience Profile Development Recommendations
 
-1. **[Segment name]** — [one sentence why this is the priority persona]
+Based on this map, build audience profiles in this order:
+
+1. **[Segment name]** — [one sentence why this is the priority audience profile]
 2. **[Segment name]** — [one sentence]
 3. **[Segment name]** — [one sentence, note if lower confidence warrants deferral]
 
-Segments not recommended for immediate persona development: [list + brief rationale]
+Segments not recommended for immediate audience profile development: [list + brief rationale]
 
 ## Influence Map
 
@@ -247,7 +251,7 @@ When a strategy project site exists, offer to create or update the Audience Map 
 The audience map page shows:
 - A sortable segment table with all five dimension scores and composite scores
 - A 2x2 matrix: Spending Power (Y axis) vs. Influence Power (X axis), with bubble size = Reach
-- Each segment card links to its persona page if one exists, or shows "Persona: not yet built"
+- Each segment card links to its audience profile page if one exists, or shows "Audience Profile: not yet built"
 - Confidence indicators per segment
 - A "Strategic Read" section below the visualization
 
@@ -258,11 +262,12 @@ Hypotheses → Audience Map → Personas
 
 Update `StrategyShell.tsx` NAV and `PAGE_LABELS` accordingly.
 
-**Data contract:** The page reads from a static data object defined inline in the page file (same pattern as personas). No API route needed — the map is strategy output, not runtime data.
+**Data contract:** The page reads from a static data object defined inline in the page file (same pattern as audience profiles). No API route needed — the map is strategy output, not runtime data.
 
 ```typescript
 type AudienceSegment = {
   id: string
+  tier: 'primary' | 'secondary'  // primary = direct buyer or high-frequency transactor; secondary = influencer, enabler, or market shaper who affects the primary audience's decisions
   name: string
   description: string
   context: 'b2b' | 'b2c' | 'both'
@@ -285,7 +290,7 @@ type AudienceSegment = {
   }
   confidence: 'HIGH' | 'MEDIUM' | 'LOW'
   keyUncertainty: string
-  personaSlug?: string               // links to /personas/[slug] if persona exists
+  personaSlug?: string               // links to /personas/[slug] if audience profile exists
   evidence: {
     reach: string
     spendingPower: string
@@ -307,13 +312,13 @@ An audience map is ready when:
 - The composite ranking is legible and defensible
 - The strategic read names the tension — which segments are competing for priority, and why
 - Primary research gaps are identified per segment
-- Persona development order is recommended with rationale
+- Audience profile development order is recommended with rationale
 
 ---
 
 ## Integration with Other Skills
 
 - **Before:** Run after `/strategy:research` or `/strategy:wave-synthesize-within` when audience data exists
-- **Before personas:** Run before `/persona-engine:generate-persona` — the map determines which segments get personas first
+- **Before audience profiles:** Run before `/persona-engine:generate-persona` — the map determines which segments get audience profiles built first
 - **After ecosystems:** If an ecosystem audit surfaced audience signals, use them as scoring inputs
 - **During wave flow:** In a wave-based engagement, this skill typically runs as part of Wave 3 (Synthesize Within) or Wave 4 (Synthesize Across) when audience insights are being consolidated
