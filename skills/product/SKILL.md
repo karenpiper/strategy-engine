@@ -9,7 +9,7 @@ description: |
 
 <required_reading>
 Read before doing ANY work:
-1. `feedback-log.md` — Binding corrections from Julian. Override everything.
+1. `feedback-log.md` — Binding corrections from the user. Override everything.
 2. `references/sacred-six.md` — Universal brief framework. Sacred Six sections, per-section rubrics, quality gate process. ALL briefs follow this structure.
 3. `~/.claude/feedback/strategy/sharpness-rubric.md` — Sharpness scoring. Run BEFORE presenting.
 4. `rules/voice.md` — Voice DNA + Stop-Slop enforcement.
@@ -25,23 +25,23 @@ Product strategy documents. Three modes, one skill. Each mode produces a differe
 artifact in the pipeline, but they share the same brain: user problems, capabilities,
 positioning against alternatives, success metrics, explicit exclusions.
 
-## The Pipeline Context
+## The Artifact Pipeline
 
-This skill produces the core artifacts in a 7-step pipeline:
+This skill produces three artifacts in sequence. In a wave-based engagement they emerge from Wave 5–6; in standalone product work they follow this order:
 
 ```
-1. INTAKE    → 2. RESEARCH    → 3. DISTILL    → 4. BRIEF    → 5. SPEC    → 6. MAP    → 7. BUILD
-                                                    ↑              ↑            ↑
-                                                 vision          spec          map
-                                                  mode           mode         mode
+RESEARCH/DISTILL → BRIEF (vision mode) → SPEC (spec mode) → MAP (map mode) → BUILD
+                      ↑                      ↑                   ↑
+                   vision                  spec                 map
+                    mode                   mode                mode
 ```
 
-**Vision mode** (Step 4) produces THE BRIEF. The core document. 2-4 pages at every size.
+**Vision mode** produces THE BRIEF. The core document. 2-4 pages at every size.
 It does not scale with project size. The research scales. The brief stays tight.
 
-**Spec mode** (Step 5) extends the brief into buildable capabilities and requirements.
+**Spec mode** extends the brief into buildable capabilities and requirements.
 
-**Map mode** (Step 6) translates the spec into component cards, zone maps, and user flows
+**Map mode** translates the spec into component cards, zone maps, and user flows
 that human designers and developers work from.
 
 Each mode expects the previous artifact to exist. Vision mode takes distilled insights
@@ -74,7 +74,7 @@ collapses to when someone asks "what are we doing?" in a hallway.
 - "Faster for everyone" — FAILS. Names a benefit, not a sacrifice. Any company in any category could claim this.
 - Good rallying cries make a trade-off visible. If it could describe any product in the category, it fails.
 
-**Process:** Propose 2-3 candidate rallying cries during the Structure phase. Julian picks.
+**Process:** Propose 2-3 candidate rallying cries during the Structure phase. the user picks.
 Each candidate should name the choice it makes and what it leaves behind.
 
 ### Brief Structure
@@ -156,7 +156,7 @@ principles:
 
 ```
 PHASE 1: INTAKE
-  Accept whatever Julian provides (research dossier, distilled insights,
+  Accept whatever the user provides (research dossier, distilled insights,
   client brief, verbal description). Read it. Identify:
   - The core problem (who, what's broken, what it costs)
   - The audience (behavior, not demographics)
@@ -168,15 +168,15 @@ PHASE 1.5: CONTEXT GATE (first run only)
   Context Gate (see section above). Capture delivery type, builder, fidelity.
   If context was already captured in a prior mode, confirm it still holds.
 
-PHASE 2: STRUCTURE (PAUSE for Julian's approval)
+PHASE 2: STRUCTURE (PAUSE for the user's approval)
   Present:
   a) The problem in one sentence
   b) 2-3 candidate rallying cries with the choice each one makes
   c) The proposed proposition in one sentence
   d) The key exclusions (what we're NOT doing)
 
-  DO NOT proceed until Julian approves direction and picks a rallying cry.
-  Julian may redirect, combine candidates, or propose his own.
+  DO NOT proceed until the user approves direction and picks a rallying cry.
+  The user may redirect, combine candidates, or propose their own.
 
 PHASE 3: WRITE
   Write the full brief following the template structure exactly.
@@ -191,10 +191,10 @@ PHASE 4: QUALITY GATE (mandatory, internal)
     - Revise the specific failing sections
     - Re-score
     - Repeat until all layers pass
-  DO NOT present to Julian until all layers pass.
+  DO NOT present to the user until all layers pass.
 
 PHASE 5: PRESENT
-  Present the scored brief to Julian.
+  Present the scored brief to the user.
   Include the three scores and the rallying cry check (pass/fail).
   Flag any dimension that scored below 8 with a note on what's weak.
 
@@ -283,20 +283,20 @@ Format: "Q: [question] — Owner: [name] — By: [date]"]
 ```
 PHASE 1: INTAKE
   Read the brief (docs/strategy/04-brief.md).
-  If the brief doesn't exist, stop. Tell Julian to run vision mode first.
+  If the brief doesn't exist, stop. Tell the user to run vision mode first.
   Extract: rallying cry, proposition, audience, constraints, exclusions.
 
 PHASE 1.5: CONTEXT GATE
   If project context wasn't captured during vision mode, fire the Project
   Context Gate now. If it was, confirm it still holds for spec mode.
 
-PHASE 2: STRUCTURE (PAUSE for Julian's approval)
+PHASE 2: STRUCTURE (PAUSE for the user's approval)
   Present:
   a) Proposed capability list (names and one-line descriptions)
   b) How capabilities map to the rallying cry (each one should serve it)
-  c) Any capabilities Julian might expect that you're excluding and why
+  c) Any capabilities the user might expect that you're excluding and why
 
-  DO NOT proceed until Julian approves the capability list.
+  DO NOT proceed until the user approves the capability list.
 
 PHASE 3: WRITE
   Write the full spec. Apply Voice DNA (Layer 1). Apply Copy Polish (Layer 2).
@@ -339,7 +339,7 @@ PHASE 6: OFFER .SPECS/ GENERATION (optional)
 The map translates the spec into the artifact human designers and developers work from.
 Component cards, zone maps, user flows. The Cenex pattern.
 
-**At Small size (Julian + 1 designer, shared repo):** Map mode is optional. If the designer
+**At Small size (the user + 1 designer, shared repo):** Map mode is optional. If the designer
 is working directly from the spec in the same repo, the map adds ceremony without value.
 Skip it and let the designer work from the brief + spec. Use map mode when there's enough
 team size or trust distance that people need a reference document to work from independently.
@@ -452,7 +452,7 @@ decision_points: [number of branches]
 ```
 PHASE 1: INTAKE
   Read the spec (docs/strategy/05-spec.md).
-  If the spec doesn't exist, stop. Tell Julian to run spec mode first.
+  If the spec doesn't exist, stop. Tell the user to run spec mode first.
   Extract: capabilities, requirements, constraints, open questions.
 
 PHASE 1.5: CONTEXT GATE
@@ -461,7 +461,7 @@ PHASE 1.5: CONTEXT GATE
   Map mode is the most affected by delivery context: a pitch map looks
   very different from a production map.
 
-PHASE 2: STRUCTURE (PAUSE for Julian's approval)
+PHASE 2: STRUCTURE (PAUSE for the user's approval)
   Present:
   a) Proposed component list derived from capabilities
   b) Proposed page/template list
@@ -469,7 +469,7 @@ PHASE 2: STRUCTURE (PAUSE for Julian's approval)
   d) Which capabilities map to which components
   e) If delivery_type is "pitch": proposed tier assignments per component
 
-  DO NOT proceed until Julian approves the structure.
+  DO NOT proceed until the user approves the structure.
 
 PHASE 3: WRITE
   Write all four map files. Apply Voice DNA (Layer 1) to descriptions.
@@ -499,7 +499,7 @@ PHASE 5: PRESENT + OBSERVATION
 
 ## The Three-Layer Scoring Rubric (Vision Mode)
 
-The brief is scored on three layers. All must pass before presenting to Julian.
+The brief is scored on three layers. All must pass before presenting to the user.
 Layers 1 and 2 also apply to spec and map modes (Layer 3 is brief-only).
 
 ### Layer 1: Strategic Integrity (/50)
@@ -587,10 +587,10 @@ If any layer scores below 35/50:
 1. Identify the dimensions scoring below 7.
 2. Revise ONLY the failing sections. Don't rewrite what works.
 3. Re-score the revised sections.
-4. If the layer still fails after two revision passes, flag it to Julian:
+4. If the layer still fails after two revision passes, flag it to User:
    "Layer [X] is scoring [Y/50]. The weak dimensions are [Z]. I've revised twice.
    Want me to continue revising or present as-is with the flags?"
-5. Julian decides. The engine doesn't present below-threshold work silently.
+5. the user decides. The engine doesn't present below-threshold work silently.
 
 ---
 
@@ -669,8 +669,8 @@ PROJECT CONTEXT GATE
    [ ] Full product (complete system, production-ready)
 
 2. BUILDER: Who builds from this document?
-   [ ] Solo (Julian + Arc agents)
-   [ ] Designer + Julian (small team, shared repo)
+   [ ] Solo (the user + Arc agents)
+   [ ] Designer + the user (small team, shared repo)
    [ ] Full team (agency or multi-discipline)
 
 3. FIDELITY: What level of design is needed?
@@ -692,7 +692,7 @@ PROJECT CONTEXT GATE
 | **MVP** | Capabilities scoped to v1 only. "Optional" fields are explicit cut candidates. | Components are all buildable. No conceptual tier. Flows have edge cases. |
 | **Full product** | Full capability matrix. Integration requirements. Data model. | Full Cenex-style map. Every template, every zone, every flow. Sprint phasing required. |
 | **Solo builder** | .specs/ generation offered. Agent-structured YAML matters. | YAML frontmatter is load-bearing (agents consume it). |
-| **Designer + Julian** | Human-readable descriptions matter most. | Zone maps and component cards are the primary artifacts. |
+| **Designer + the user** | Human-readable descriptions matter most. | Zone maps and component cards are the primary artifacts. |
 | **Full team** | Both human and agent readability. | Dual-audience format (YAML + markdown). |
 | **Screen-level** | N/A | Tier system required. Shot list required. |
 | **Flow-level** | N/A | All primary flows designed, edge cases included. |

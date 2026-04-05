@@ -1,106 +1,100 @@
 ---
 name: pipeline
 description: |
-  Full strategy-to-build pipeline. 7 steps from written input to shipped product.
-  Use when starting a new project, saying "let's build something," or when you need
-  the full sequence: intake → research → distill → brief → spec → map → build.
-  For stateful multi-session runs, use `lead pipeline` from terminal instead.
+  Full strategy flow from first conversation to final deliverable. Six waves: Frame, Gather,
+  Synthesize Within, Synthesize Across, Strategy Development, Output. Each wave has a gate
+  the human approves before the next begins. Use when starting a new engagement or when you
+  need the full sequence with human interaction points at every step.
 ---
 
 <required_reading>
-For the full workflow document (depth dials, scoring rubrics, practical examples, brand+product fork):
-`references/the-pipeline.md`
+references/the-pipeline.md
+references/flow-framework.md
+references/recursive-loops.md
+references/measurement-thread.md
 </required_reading>
 
 # /strategy:pipeline
 
-The full strategy-to-build sequence. Every project hits every step.
-The depth dial changes. The sequence does not.
+The full strategy flow. Six waves, sequential. Human interaction embedded at every step.
 
 ## Quick Reference
 
 ```
-1. INTAKE    → /strategy:go              What are we doing and why?
-2. RESEARCH  → /strategy:research        What's true about the market, audience, category?
-3. DISTILL   → /strategy:insight-distill What's the tension, insight, way in?
-4. BRIEF     → /strategy:product vision  The core document. Clear. Unambiguous. Original.
-5. SPEC      → /strategy:product spec    Capabilities, requirements, what we're building.
-6. MAP       → /strategy:product map     Components, zones, flows — the buildable structure.
-7. BUILD     → /arc:* or human process   Design and development.
+WAVE 1 — FRAME             Human-led. Challenge + outcomes. Gate before Wave 2.
+WAVE 2 — GATHER            Agent-led. 8 parallel workstreams. Human decides what matters.
+WAVE 3 — SYNTHESIZE WITHIN Collaborative. Rolling per workstream. Agent structures, human calls.
+WAVE 4 — SYNTHESIZE ACROSS Human-led. Insights earn their place. Path-to-result check.
+WAVE 5 — STRATEGY          Human-led decisions. Agent develops. Theory of change required.
+WAVE 6 — OUTPUT            Agent drafts. Human authors. Brief + measurement framework required.
 ```
 
-## When to Use This vs. `lead pipeline`
+## Operating Model
 
-| Use this (`/strategy:pipeline`) | Use `lead pipeline` |
+Every wave starts with the ownership label. Every handoff surfaces an explicit interaction point
+with 6 mode options. The human decides how to engage at each point.
+
+See `references/flow-framework.md` for the interaction point format and audit schema.
+See `references/recursive-loops.md` for the 5 loops that can return the flow to an earlier wave.
+See `references/measurement-thread.md` for how business outcomes carry forward through all waves.
+
+## Wave Gates
+
+Wave N does not begin until the gate for Wave N-1 is human-approved.
+
+| Gate | Required before |
 |---|---|
-| Quick reference for the sequence | Multi-day projects that span sessions |
-| Running a single step manually | Need state tracking and resume |
-| Already know which step you're on | Starting a new project from scratch |
-| In a Claude Code conversation | From the terminal |
+| Strategic challenge + business outcomes + scope + research plan | Wave 2 |
+| All active workstream syntheses complete | Wave 4 |
+| Final insight set approved | Wave 5 |
+| Organizing idea + theory of change approved | Wave 6 |
 
-**For stateful execution**, tell Julian to run from terminal:
-```bash
-lead pipeline ~/Projects/my-project --size M --type product
-lead pipeline ~/Projects/my-project --resume
+## Depth
+
+| Size | Wave 2 scope | Primary research | Output |
+|---|---|---|---|
+| Small | 1-3 workstreams | Not conducted | Brief + measurement framework |
+| Medium | 5-6 workstreams | Stakeholder interviews only | Brief + narrative + measurement framework |
+| Large | All 8 workstreams | Full program | All deliverables |
+
+See `references/the-pipeline.md` for the full depth dial by wave.
+
+## Skills by Wave
+
+```
+WAVE 2    design:user-research          Primary research planning
+          marketing:competitive-analysis Competitive audit
+          brand-voice:discover-brand    Owned audit
+          persona-engine:generate-persona Persona development
+
+WAVE 3    design:research-synthesis     Research workstream synthesis
+          marketing:competitive-brief   Competitive synthesis
+          persona-engine:persona-audit  Persona pressure-testing
+
+WAVE 4    brief-co-authoring            Insight sharpening
+          strategy-assessment           Insight quality check
+          persona-engine:persona-chat   Test insights against a persona
+
+WAVE 5    brief-co-authoring            Organizing idea development
+          persona-engine:persona-messaging Messaging hierarchy
+          persona-engine:persona-to-brief  Persona insight into strategy
+          strategy-assessment           Strategy quality check
+          persona-engine:persona-chat   Test strategy against a persona
+
+WAVE 6    brief-co-authoring            Brief development
+          strategy-narrative            Narrative from approved brief
+          marketing:performance-report  Measurement framework
+          marketing:campaign-planning   If output is a campaign
 ```
 
-## The Sequence
+**Quality amplifiers** (available at any wave):
+- `/strategy:pressure-test` — before locking anything major
+- `/strategy:courtroom` — high-stakes decisions at Wave 4/5
+- `/strategy:narrative-review` — before narrative goes to stakeholders
+- `/strategy:distill` — compress copy at Wave 6
 
-### Step 1: Intake
-**Skill:** `/strategy:go`
-**Input:** Written problem statement, client brief, or RFP
-**Output:** `docs/strategy/01-intake.md`
+## Audit
 
-### Step 2: Research
-**Skill:** `/strategy:research`
-**Input:** Intake doc
-**Output:** `docs/strategy/02-research.md` (Punt-style dossier)
-
-### Step 3: Distill
-**Skill:** `/strategy:insight-distill`
-**Input:** Research dossier
-**Output:** `docs/strategy/03-distill.md` (core insight, tension, audience truth, way in)
-At Large: also run `/strategy:pressure-test` or `/strategy:courtroom`
-
-### Step 4: Brief (THE CORE DOCUMENT)
-**Skill:** `/strategy:product` (vision mode)
-**Input:** Distilled insights
-**Output:** `docs/strategy/04-brief.md` + `docs/strategy/04-brief-handoff.yaml`
-**Quality gate:** Three-layer scoring, all 35/50. Rallying cry below 7/10 = hard stop.
-THE BRIEF DOES NOT GET LONGER AT LARGE.
-
-### Step 5: Spec
-**Skill:** `/strategy:product` (spec mode)
-**Input:** Brief
-**Output:** `docs/strategy/05-spec.md` + optional `.specs/` directory
-
-### Step 6: Map
-**Skill:** `/strategy:product` (map mode) + `/arc:vision`
-**Input:** Spec
-**Output:** `docs/map/` (components, zones, flows, open questions) + `docs/vision.md`
-At Small: map mode is optional if designer works from spec directly.
-
-### Step 7: Build
-**Skill:** `/arc:*` (solo) or human process (team)
-Solo: `arc:ideate → arc:build → arc:implement → arc:verify → arc:letsgo`
-Team: design sprints + dev sprints, Julian reviews against brief.
-
-## T-Shirt Sizes
-
-| | Small | Medium | Large |
-|---|---|---|---|
-| **Team** | Julian + 1 designer | Small team | Full agency |
-| **Research** | 1-2 hours | Half day | 1-2 days |
-| **Brief** | 2-3 pages | 2-4 pages | 2-4 pages |
-| **Map** | Optional | Required | Full Cenex-style |
-| **Build** | Full Arc suite | Arc:vision only | Arc:vision only |
-
-## The Rule
-
-**Solo build triggers Arc. Team build stays in strategy-engine. Arc:vision is the only bridge.**
-(Teams still use Arc for `vision.md` generation — but only that.)
-
-**Arc without strategy-engine** is valid for small personal projects where the builder
-already knows what they're building. Skip the pipeline, go straight to `/arc:vision`
-or `/arc:ideate`. The pipeline exists for when the problem needs to be understood
-before it's solved.
+After every interaction point, write to `outputs/flow-audit.json`.
+The project site's `/flow-audit` page reads this file and renders the engagement history.
+See `references/flow-framework.md` for the schema.

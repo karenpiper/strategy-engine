@@ -1,7 +1,7 @@
 {
   "name": "strategy-engine",
   "owner": {
-    "name": "Julian Alexander"
+    "name": "the user Alexander"
   },
   "metadata": {
     "description": "Strategy engine for brand strategy, creative briefs, product vision, adversarial debate, and self-improving output",
@@ -14,7 +14,7 @@
       "description": "A strategy engine for the full range of strategic work",
       "version": "0.1.0",
       "author": {
-        "name": "Julian Alexander"
+        "name": "the user Alexander"
       },
       "license": "UNLICENSED",
       "keywords": [

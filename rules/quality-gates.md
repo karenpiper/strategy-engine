@@ -1,6 +1,6 @@
 # Quality Gates
 
-Mandatory checks that run before ANY output reaches Julian. These are not suggestions.
+Mandatory checks that run before ANY output reaches the user. These are not suggestions.
 
 ## Quick Checks (all must pass)
 
@@ -55,7 +55,7 @@ Mandatory checks that run before ANY output reaches Julian. These are not sugges
 - **1-3**: Consultant filler. Sounds professional but says nothing.
 
 ### Thresholds
-- **Below 35/50**: Revise internally. Do not present to Julian.
+- **Below 35/50**: Revise internally. Do not present to the user.
 - **35-40**: Present with flagged weak dimensions.
 - **Above 40**: Present.
 - **Any dimension below 7**: Flag with the specific section and what's weak.

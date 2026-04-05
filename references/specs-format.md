@@ -106,7 +106,7 @@ depends_on: [list of capability IDs this depends on, or empty]
 ## When to Generate
 
 - **Automatically:** After `/strategy:product` spec mode completes, offer to generate .specs/.
-- **Manually:** Julian can request generation at any time if the spec exists.
+- **Manually:** the user can request generation at any time if the spec exists.
 - **At Small size:** Optional. The designer may not need structured per-feature specs.
 - **At Medium/Large size:** Recommended. Multiple people and agents need independent feature context.
 

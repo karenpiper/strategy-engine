@@ -1,6 +1,6 @@
 # Research / Strategy Tissue Deck Pattern
 
-Extracted from Julian Alexander's Xbox Game Pass Strategy Tissue Session (45 slides, May 2025). This is the benchmark for internal strategy research decks, tissue sessions, and Gate 1 reviews.
+Extracted from the user Alexander's Xbox Game Pass Strategy Tissue Session (45 slides, May 2025). This is the benchmark for internal strategy research decks, tissue sessions, and Gate 1 reviews.
 
 ## What Makes This Deck Work
 

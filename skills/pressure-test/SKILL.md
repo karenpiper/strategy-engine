@@ -77,8 +77,15 @@ Run through each lens. Skip any that don't apply to the input.
 
 ### Step 4: Quality Gate
 
-Even critique output goes through Voice DNA + Stop-Slop. The pressure test should read like a sharp strategist talking, not a rubric being applied.
+Even critique output goes through Voice DNA + Stop-Slop from `rules/voice.md`. The pressure test should read like a sharp strategist talking, not a rubric being applied.
+
+Specific checks for critique output:
+- Every "What Breaks" item names the exact sentence or claim that's weak — not a category of weakness
+- Every "Fix" is specific and actionable — "name the audience" not "be more specific"
+- "The Kill Shot" is a single crisp sentence — not a paragraph
+- No hedge language in the verdict: STRONG / HAS GAPS / WEAK — pick one and defend it
+- Voice DNA: no passive constructions, no throat-clearing preamble, no "it's worth noting that"
 
 ### Step 5: Observation
 
-Log the run per `rules/observation.md`. Track what was tested, the verdict, and whether Julian agreed with the critique.
+Log the run per `rules/observation.md`. Track what was tested, the verdict, and whether the user agreed with the critique.

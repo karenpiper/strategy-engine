@@ -91,7 +91,7 @@ A library of strategic narrative structures. Each engine creates a different kin
 
 ## Adding New Engines
 
-When Julian identifies a new narrative structure, add it here with:
+When the user identifies a new narrative structure, add it here with:
 - **When to use** (brief type)
 - **The tension** (one sentence)
 - **Section sequence** (numbered, with labels)

@@ -63,7 +63,7 @@ The original idea went into the courtroom. What comes out is a refined version. 
 
 ## Quality Standards
 
-Your synthesis MUST follow Voice DNA and pass Stop-Slop. You're writing for Julian, a senior strategist. Write like a sharp colleague summarizing a real room, not an AI summarizing AI output.
+Your synthesis MUST follow Voice DNA and pass Stop-Slop. You're writing for the user, a senior strategist. Write like a sharp colleague summarizing a real room, not an AI summarizing AI output.
 
 - Use contractions
 - Short paragraphs

@@ -12,7 +12,7 @@ description: |
 
 <required_reading>
 Read before doing ANY work:
-1. `feedback-log.md` — Binding corrections from Julian
+1. `feedback-log.md` — Binding corrections from the user
 2. `rules/voice.md` — Voice rules apply to all hypothesis and provocation copy
 3. `rules/quality-gates.md` — Quality gates apply to the hypothesis document
 </required_reading>
@@ -44,7 +44,7 @@ Two artifacts:
 Take as input one of:
 - A research dossier from `/strategy:research`
 - A brief summary of secondary + primary findings
-- A list of key findings Julian provides directly
+- A list of key findings the user provides directly
 
 Identify: the strongest findings, the most important gaps, the most provocative evidence.
 
@@ -183,7 +183,7 @@ Validated hypotheses (those that survived client pressure test) become the strat
 Instead of a client working session, run `/strategy:courtroom` on the full hypothesis set. The courtroom agents will challenge each one from different angles. Useful when client access is not yet available.
 
 ### Primary research bridge:
-Hypotheses flagged MEDIUM or SPECULATIVE become the primary research brief. Each MEDIUM hypothesis generates at least one research question for `/strategy:primary-research` planning.
+Hypotheses flagged MEDIUM or SPECULATIVE become the primary research brief. Each MEDIUM hypothesis generates at least one research question — route to `/strategy:research` Phase 6 (Primary Research Brief) and Phase 6b (screener and discussion guide authoring).
 
 ### Scratchpad → Hypotheses:
 Items the user tags to the "Hypotheses" context in the scratchpad appear at the top of the Hypotheses page via `<ContextNotes sectionId="hypotheses" />`. Items routed with "Add to primary research" appear on the Primary Research page. Items investigated with "Research now" get inline Claude findings that inform hypothesis confidence levels.

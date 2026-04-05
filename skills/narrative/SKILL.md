@@ -32,7 +32,7 @@ Craft strategy documents and slide-ready copy from any brief.
 
 ## Phase 0: Intake
 
-Accept whatever Julian provides.
+Accept whatever the user provides.
 
 **If the input is thin (brand + problem only):**
 Ask up to 5 clarifying questions:
@@ -52,7 +52,7 @@ Ask up to 5 clarifying questions:
 | GTM / business strategy | "go-to-market," "pitch," "sell this" | False Choice → Reframe |
 | Marketing / creative strategy | "campaign," "launch," "activation" | Subculture → Mobilization |
 | Innovation / product strategy | "new product," "service design," "experience strategy" | Audience Tension → Platform Expansion |
-| Unclear | None of the above | Propose 2 engines with rationale, ask Julian |
+| Unclear | None of the above | Propose 2 engines with rationale, ask the user |
 
 The engine is a starting point. Adapt the section sequence to the brief.
 
@@ -89,7 +89,7 @@ EXPRESSION DEPTH: [Strategic frame only / Directional territories / Full concept
 ESTIMATED SLIDES: [range]
 ```
 
-3. **STOP. Wait for Julian's approval.** Do not proceed until confirmed.
+3. **STOP. Wait for the user's approval.** Do not proceed until confirmed.
 
 ---
 
@@ -131,7 +131,7 @@ Produce a structured markdown document.
 Load: `references/slide-conventions.md`
 </required_reading>
 
-After the strategy doc is approved (or simultaneously if Julian prefers):
+After the strategy doc is approved (or simultaneously if the user prefers):
 
 ### Format per slide
 
@@ -178,11 +178,18 @@ If the user wants to build the deck in Paper or Figma after Phase 3, invoke `/pa
 
 ## Phase 4: Quality Gate (MANDATORY)
 
-Run the full quality gate from `rules/quality-gates.md`.
+Run the full quality gate from `rules/quality-gates.md`. Both quality layers must be run LINE-BY-LINE on the strategy doc AND the slide copy — every slide, every sentence. The quality gate is mandatory, not decorative.
 
-**CRITICAL (from feedback-log.md 2026-03-18):** Both quality layers (Voice DNA + Stop-Slop) must be run LINE-BY-LINE on the strategy doc AND the slide copy. The quality gate is mandatory, not decorative. Every slide, every sentence. No exceptions.
+**CRITICAL (from feedback-log.md 2026-03-18):** Voice DNA + Stop-Slop run line by line. No exceptions.
 
-Present the scored output to Julian. Flag any dimension below 7.
+**Thresholds:**
+- Strategic Integrity: 35/50 minimum
+- Voice Quality: 35/50 minimum
+- Any individual dimension below 7/10: flag explicitly to the user
+
+**Anti-blandification check:** After writing slide copy, compare each slide against its source section. If a physical verb became a neutral summary, a rhythm was flattened, or a named example was replaced with an abstraction — restore from the source.
+
+Present the scored output to the user. Flag any dimension below 7. Do not present silently below-threshold output.
 
 ---
 

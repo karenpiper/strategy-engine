@@ -2,7 +2,7 @@
 
 Every brief follows this structure. Brand brief, product brief, creative brief. The depth changes. The sections do not.
 
-Derived from Julian Cole's Sacred Six, Mark Pollard's Four Points, the Xbox GamePass Creative Brief (05.02.25), and Julian Alexander's sharpness standard.
+Derived from the user Cole's Sacred Six, Mark Pollard's Four Points, the Xbox GamePass Creative Brief (05.02.25), and the user Alexander's sharpness standard.
 
 ---
 
@@ -362,9 +362,9 @@ Brevity, plain language, human center, single idea, compression. Must hit 35/50.
 Run voice-dna.md (Layer 1) and copy-polish.md (Layer 2) line by line.
 Both must hit 35/50 per existing rules.
 
-### Step 5: Present to Julian
+### Step 5: Present to the user
 
-Include the scorecard, the Crystallization Test line, and the Competitor Claim Test table. Flag any dimension below 8. The brief has passed four checks before Julian sees it.
+Include the scorecard, the Crystallization Test line, and the Competitor Claim Test table. Flag any dimension below 8. The brief has passed four checks before the user sees it.
 
 ---
 
@@ -372,7 +372,7 @@ Include the scorecard, the Crystallization Test line, and the Competitor Claim T
 
 ### Rewrite Limits
 
-Two rewrite attempts per failing section. If the section still fails after two rewrites, flag it for Julian:
+Two rewrite attempts per failing section. If the section still fails after two rewrites, flag it for User:
 "Section [X] is scoring [Y/10]. The weak dimensions are [Z]. I've revised twice. Here are both attempts. Want me to continue or adjust the direction?"
 
 ### Cascade Rules

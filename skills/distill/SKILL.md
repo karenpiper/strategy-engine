@@ -35,7 +35,7 @@ Never cut:
 - Evidence that supports a claim
 - Specificity (names, numbers, examples)
 - Narrative transitions that hold the arc together
-- Voice texture (the copy should still sound like Julian, not a summary)
+- Voice texture (the copy should still sound like the user, not a summary)
 
 Always cut:
 - Redundancy between headline and body
@@ -53,7 +53,7 @@ Read everything. Map the narrative arc. Identify every distinct idea. Count slid
 
 ### Step 2: Propose a Plan (MANDATORY)
 
-Before making any changes, present Julian with:
+Before making any changes, present the user with:
 
 1. **Current state:** Slide/section count, approximate word count
 2. **Target:** What you think the compressed version looks like
@@ -100,11 +100,20 @@ At the bottom, include:
 
 ### Step 5: Quality Gate
 
-Run Voice DNA + Stop-Slop on the compressed output. Compression sometimes introduces passive voice or strips the texture out of copy. Check that the tightened version still sounds like Julian, not a telegram.
+Run Voice DNA + Stop-Slop on the compressed output per `rules/voice.md`. Compression sometimes introduces passive voice or strips the texture out of copy. Check that the tightened version still sounds like the user, not a telegram.
+
+Specific checks after compression:
+- No physical verb was replaced by a nominalization ("the decision was made" for "he decided")
+- No example was cut that was the only concrete thing in the section
+- No rhythm-carrying repetition was cut when it was doing structural work
+- Tightened sentences are still sentences, not fragments that rely on context the reader won't have
+- Voice Quality score: 35/50 minimum on the compressed output
+
+If the user says "you cut too much" or "this lost the feel" — log it in `feedback-log.md` and recalibrate toward preserving texture over word count.
 
 ### Step 6: Observation
 
-Log the run per `rules/observation.md`. Track input size, output size, what was merged, and whether Julian accepted the cuts.
+Log the run per `rules/observation.md`. Track input size, output size, what was merged, and whether the user accepted the cuts.
 
 ## What Good Distillation Looks Like
 
@@ -127,4 +136,4 @@ Log the run per `rules/observation.md`. Track input size, output size, what was 
 - **Arc damage:** Merged two slides and broke the narrative flow.
 - **Specificity loss:** Cut the example that made the claim concrete.
 
-If Julian says "you cut too much" or "this lost the feel," log it in feedback-log.md and recalibrate.
+If the user says "you cut too much" or "this lost the feel," log it in feedback-log.md and recalibrate.

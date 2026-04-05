@@ -11,7 +11,7 @@ description: |
 
 <required_reading>
 Read before doing ANY work:
-1. `feedback-log.md` — Binding corrections from Julian
+1. `feedback-log.md` — Binding corrections from the user
 2. `rules/voice.md` — Voice rules apply to synthesis output
 3. `rules/quality-gates.md` — Quality gates apply to synthesis
 </required_reading>
@@ -22,8 +22,8 @@ Deep desk research engine. Three specialized agents research in parallel, score 
 
 ## Philosophy
 
-1. **Verified or flagged.** If a claim can't be traced to a specific source with a URL, DOI, or named publication, it gets flagged as unverified. Unverified claims can still be useful, but Julian sees the flag.
-2. **Scored, not curated.** The agents don't hide weak findings. They score them and show the scores. Julian decides what's strong enough.
+1. **Verified or flagged.** If a claim can't be traced to a specific source with a URL, DOI, or named publication, it gets flagged as unverified. Unverified claims can still be useful, but the user sees the flag.
+2. **Scored, not curated.** The agents don't hide weak findings. They score them and show the scores. the user decides what's strong enough.
 3. **Anti-slop research.** No "studies show" without naming the study. No "experts agree" without naming the expert. No "recent trends indicate" without naming the trend, the data, and the date.
 4. **Recency matters.** A 2019 stat about Gen Z is a 2019 stat, not a current truth. All findings carry their date visibly.
 
@@ -53,7 +53,7 @@ Deep desk research engine. Three specialized agents research in parallel, score 
 ## Process
 
 ### Phase 1: Research Brief
-Julian provides one of:
+the user provides one of:
 - A **topic** to research broadly ("NBA's content strategy in the 2000s-2010s")
 - A **claim** to verify or challenge ("70% of Gen Z buys dupes")
 - An **argument** to bolster ("brand compounds under imitation")
@@ -72,7 +72,7 @@ For each researcher:
   Cultural: [what discourse to scan, which communities, what signals]
 ```
 
-**PAUSE for Julian's approval before launching researchers.**
+**PAUSE for the user's approval before launching researchers.**
 
 ### Phase 2: Parallel Research
 All three researchers execute in parallel. Each uses firecrawl for web research and follows their specific lens.
@@ -143,7 +143,7 @@ The deliverable:
 ```
 
 ### Phase 5: Present
-Present the dossier to Julian. He decides:
+Present the dossier to the user. He decides:
 - Which findings to incorporate into the narrative
 - Which claims need more research
 - Which contradictions to address
@@ -185,6 +185,168 @@ If a project site exists at `~/strategy-projects/{slug}/site/`, offer to populat
 
 **If NO — no primary research:**
 Acknowledge the constraint, note which hypotheses will require primary research to confirm before client commitment, and proceed directly to Phase 7.
+
+### Phase 6b: Research Instruments (follows Primary Research Brief when primary is confirmed)
+
+After the Primary Research Brief is approved, ask:
+
+> "Ready to write the research instruments? I can draft the screener and discussion guide for each method in the brief — grounded in the hypotheses and gaps we identified."
+
+Wait for confirmation, then produce instruments for each method in the brief.
+
+---
+
+#### Screener
+
+One screener per participant profile. Each screener:
+
+```markdown
+## Screener: [Study Name] — [Participant Profile]
+
+### Eligibility Criteria
+[Plain-language description of who qualifies: category usage, role, tenure, demographics if required by research question]
+
+### Screener Questions
+
+**Q1. [Category usage or qualification check]**
+- [Option A] → QUALIFY
+- [Option B] → QUALIFY
+- [Option C] → DISQUALIFY
+
+**Q2. [Frequency or recency check]**
+- Within the last [X] months → QUALIFY
+- Longer ago than [X] months → DISQUALIFY
+
+**Q3. [Role or decision-making check]**
+[Free text or options depending on method]
+→ Look for: [What qualifies — be specific]
+→ Disqualify if: [Red flags]
+
+**Q4. [Articulation or awareness check]** *(Skip for diary studies)*
+[Open-ended question to assess expressiveness]
+→ Look for: [Signs of verbal fluency, relevant experience]
+
+**Q5. [Conflict of interest screen]**
+Do you or does anyone in your household work for [category], [client], or any of their competitors?
+- Yes → DISQUALIFY
+- No → CONTINUE
+
+### Quotas
+| Cell | Criteria | Target n |
+|------|----------|---------|
+| [Cell A] | [Description] | [n] |
+| [Cell B] | [Description] | [n] |
+| Total | | [n] |
+
+### Incentive
+[Amount and format — cash equivalent, gift card — appropriate to session length and participant type]
+```
+
+---
+
+#### Discussion Guide
+
+One guide per methodology. Each guide:
+
+```markdown
+## Discussion Guide: [Study Name] — [Method]
+
+**Session length:** [X minutes]
+**Format:** [Moderated interview / Diary debrief / Usability / Co-creation]
+**Participants per session:** [1 / dyad / group]
+
+---
+
+### Before You Begin (Moderator Notes)
+- Research hypotheses this guide is testing: [List 2–4 hypotheses from the Wave 2 hypothesis set]
+- Watch for: [Specific signals — moments, phrases, behaviors — that confirm or challenge each hypothesis]
+- Do not lead on: [Topics to let emerge naturally — avoid planting our framing]
+
+---
+
+### Opening (5 min)
+[Intro script — introduce yourself, explain recording/consent, set ground rules]
+
+> "We're here to understand your experience with [category/topic], not to test your knowledge — there are no right or wrong answers. I'll be asking you to think aloud, and I may take notes. You can stop at any time."
+
+---
+
+### Warm-Up (10 min)
+Questions to establish context, build rapport, and calibrate expressiveness. Do not introduce the research topic yet.
+
+1. [Broad life/role/behavior question that's adjacent to the topic]
+2. [Walk me through your last [experience] question to get them in narrative mode]
+3. [Relationship-to-category question without naming client or specific brands]
+
+---
+
+### Core Questions (30–40 min)
+
+**Module 1: [Theme — maps to Hypothesis N]**
+[Brief moderator note on what this module is testing]
+
+1. [Primary question — open, non-leading]
+2. [Follow-up probe: tell me more about...]
+3. [Contrast probe: when has it been different?]
+4. [Implication probe: what does that mean for you?]
+
+**Module 2: [Theme — maps to Hypothesis N]**
+[Brief moderator note]
+
+1. [Primary question]
+2. [Probe: walk me through a specific time when...]
+3. [Counterfactual: if that weren't the case, what would change?]
+
+*(Repeat module structure for each hypothesis or gap being investigated)*
+
+---
+
+### Projective / Stimulus Section *(include if applicable)*
+
+**Personification exercise:**
+> "If [brand/category/product] were a person, how would you describe them? What kind of person are they? What do they do on weekends?"
+→ Probe: "How does that compare to [competitor or adjacent category]?"
+
+**Sorting / prioritization:**
+Present a card sort or stack-rank of [concepts, values, attributes] derived from secondary research hypotheses.
+→ Probe: "Tell me why you put [X] at the top / bottom."
+
+**Reaction to stimulus:** *(if client has provided materials)*
+Present [ad, mock concept, prototype] and ask: "What's your first reaction? What does this tell you about who this is for?"
+
+---
+
+### Closing (5 min)
+
+1. "Is there anything about [topic] that I haven't asked about that you think is important?"
+2. "If you could change one thing about [category/experience], what would it be?"
+3. Thank and close. Remind them of incentive timing.
+
+---
+
+### Debrief Prompts (for moderator, immediately after session)
+- Did the participant confirm or challenge Hypothesis [N]? Note specific quote.
+- Any unexpected language or framing that surfaced?
+- Which module produced the richest material?
+- Anything to adjust for the next session?
+```
+
+---
+
+#### Instrument Quality Check
+
+Before delivering instruments, confirm:
+- [ ] Screener leads with usage/behavior, not demographics
+- [ ] Every disqualifier has a clear rationale
+- [ ] Discussion guide opening sets ground rules without priming the topic
+- [ ] Each core module maps explicitly to a hypothesis from the brief
+- [ ] Projective exercises are grounded in the research gaps, not generic
+- [ ] Debrief prompts are specific enough to be useful immediately post-session
+- [ ] Total session time adds up correctly across modules
+
+If a project site exists at `~/strategy-projects/{slug}/site/`, offer to populate `primary-research/instruments/` with the screener and guide files.
+
+---
 
 ### Phase 7: Hypotheses & Provocations (always follows secondary research)
 
@@ -266,7 +428,7 @@ The courtroom agents can request research mid-debate. If an agent makes a claim 
 Before pressure-testing, run research to find counterexamples and contradictory evidence. Feed the dossier into the pressure test so the critique is grounded in real data.
 
 ### Narrative → Research (backfill)
-After writing a narrative, Julian can flag specific claims that need sourcing. Research mode runs targeted queries on flagged claims and returns evidence to insert.
+After writing a narrative, the user can flag specific claims that need sourcing. Research mode runs targeted queries on flagged claims and returns evidence to insert.
 
 ### Scratchpad → Research (backfill or live queue)
 

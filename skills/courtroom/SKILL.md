@@ -40,12 +40,12 @@ A room full of strategists who disagree with each other. The value isn't just cr
 
 ### Step 1: Frame the Debate
 
-Read Julian's input. Extract:
+Read the user's input. Extract:
 - The core idea or strategic argument being debated
 - Any context (brand, audience, category, competitive landscape)
-- What Julian wants to know (is this defensible? is it sharp enough? what am I missing?)
+- What the user wants to know (is this defensible? is it sharp enough? what am I missing?)
 
-Present the framing back to Julian:
+Present the framing back to User:
 > "Here's what I'm putting in front of the panel: [1-2 sentence summary of the argument]. The courtroom will debate this across [relevant angles]. Proceed?"
 
 ### Step 2: Round 1 — Independent Critique
@@ -60,7 +60,7 @@ Each agent returns:
 - Their argument (2-4 sentences)
 - Their strongest objection OR strongest endorsement
 
-**Do not show Round 1 to Julian.** This is internal deliberation.
+**Do not show Round 1 to the user.** This is internal deliberation.
 
 ### Step 3: Round 2 — Agents Argue
 
@@ -88,7 +88,7 @@ The Synthesizer agent receives all Round 1 and Round 2 output. It produces:
 [The elements that didn't survive. Which agent killed them and why.]
 
 ### Strongest Surviving Objection
-[The one critique that couldn't be fully resolved. This is valuable information, not a failure. It tells Julian where the idea is genuinely vulnerable.]
+[The one critique that couldn't be fully resolved. This is valuable information, not a failure. It tells the user where the idea is genuinely vulnerable.]
 
 ### Objections That Didn't Land
 [Critiques that other agents successfully countered. These are actually validations, because they show the idea can withstand that line of attack.]
@@ -101,9 +101,9 @@ The Synthesizer agent receives all Round 1 and Round 2 output. It produces:
 
 The synthesis output goes through Voice DNA + Stop-Slop + the full quality gate. The Synthesizer's writing should read like a sharp strategist summarizing a real conversation, not an AI summarizing AI output.
 
-### Step 6: Present to Julian
+### Step 6: Present to the user
 
-Show the full synthesis. Let Julian react, ask follow-up questions, or request a deeper dive on any specific objection.
+Show the full synthesis. Let the user react, ask follow-up questions, or request a deeper dive on any specific objection.
 
 ### Step 7: Observation
 
@@ -111,9 +111,9 @@ Log the run per `rules/observation.md`. Include agent performance data: which ag
 
 ## Configuration
 
-Julian can customize the panel for specific debates:
+the user can customize the panel for specific debates:
 - "Run courtroom but skip The Historian, this is too new for historical precedent"
 - "Add a Financial Analyst agent for this one"
 - "Double down on The Audience, I want 3 different audience personas arguing"
 
-The default panel is the 10 agents listed above. Custom agents are session-only unless Julian asks to persist them.
+The default panel is the 10 agents listed above. Custom agents are session-only unless the user asks to persist them.

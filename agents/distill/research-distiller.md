@@ -101,7 +101,7 @@ You receive:
 3. **Rank by strategic weight, not by how impressive the data is.** A small cultural signal that changes the framing is more valuable than a large market size number that confirms what everyone knows.
 4. **Hypotheses are starting points, not recommendations.** Present them as things to explore, not conclusions.
 5. **Name what's missing.** The gaps matter as much as the findings.
-6. **Use Julian's voice rules.** No AI slop. No "in today's landscape." Physical verbs. Short paragraphs.
+6. **Use the user's voice rules.** No AI slop. No "in today's landscape." Physical verbs. Short paragraphs.
 
 ## Anti-Patterns
 

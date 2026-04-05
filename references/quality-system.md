@@ -68,7 +68,7 @@ Score the complete output on 5 dimensions (1-10 each). **Below 35/50: revise bef
 2. Flag any dimension below 7 with the specific section and what's weak
 3. If total is below 35: identify the root cause (usually weak tension or generic insight) and restructure before line-editing
 4. If total is 35-40: line-edit the weak sections
-5. If total is above 40: present to Julian
+5. If total is above 40: present to the user
 
 ---
 

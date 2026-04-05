@@ -1,6 +1,6 @@
 # C&T Pitch Deck Pattern
 
-Extracted from Julian Alexander's pitches: Bumble (candidate assignment), Anthropic RFP (55 slides), Xbox Game Pass (125 slides). This is the canonical structure for C&T pitch decks.
+Extracted from the user Alexander's pitches: Bumble (candidate assignment), Anthropic RFP (55 slides), Xbox Game Pass (125 slides). This is the canonical structure for C&T pitch decks.
 
 ## The Universal Structure
 
@@ -10,7 +10,7 @@ Extracted from Julian Alexander's pitches: Bumble (candidate assignment), Anthro
 3. **Team** — Senior leadership with photos, bios, roles. Proves the people in the room stay through execution.
 4. **Agenda/TOC** — Clean sections (typically: Strategy → Creative → Production)
 
-### ACT 2: THE STRATEGY (Julian owns, ~10-15 slides max)
+### ACT 2: THE STRATEGY (the user owns, ~10-15 slides max)
 5. **The Evolution / The Shift** — What's changing for the client. Big, bold, declarative.
    - Xbox: "From SKU to Tier, Subscription to Membership, Console owners to Anyone"
    - Anthropic: "From Intellectual Partner to Critical Infrastructure"
@@ -37,7 +37,7 @@ Extracted from Julian Alexander's pitches: Bumble (candidate assignment), Anthro
     - Anthropic: 4-layer system (Brand Mission → Operational Platform → Vertical Translation → Commercial Proof)
     - Xbox: Audience-specific "More Gaming" expressions
 
-### ACT 3: THE EXPRESSION (Team owns, Julian directs)
+### ACT 3: THE EXPRESSION (Team owns, the user directs)
 13. **Vertical Translation** — How the positioning plays across audiences/verticals
 14. **Persona Messaging** — Awareness → Consideration → Evaluation per audience
 15. **Creative Executions** — Mockups, campaign concepts, visual expressions

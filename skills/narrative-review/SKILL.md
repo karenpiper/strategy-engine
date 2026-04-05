@@ -1,7 +1,7 @@
 ---
 name: narrative-review
 description: |
-  Score a strategic narrative against the brief, distilled insights, and Julian's quality bar.
+  Score a strategic narrative against the brief, distilled insights, and the user's quality bar.
   Catches drift, missing requirements, unsupported claims, and weak story structure before
   the narrative goes to stakeholders.
   Use for "review the narrative," "is this ready for my boss," "check this against the brief,"
@@ -10,7 +10,7 @@ description: |
 
 <required_reading>
 Read before doing ANY work:
-1. `feedback-log.md` — Binding corrections from Julian
+1. `feedback-log.md` — Binding corrections from the user
 2. `rules/voice.md` — Two-layer voice system
 3. `~/.claude/copy-polish.md` — Layer 2: plain language, directness, jargon elimination (this skill reviews client-facing output)
 4. `rules/quality-gates.md` — Quality gates apply
@@ -25,10 +25,10 @@ Quality gate for strategic narratives before they go to stakeholders. Scores on 
 
 ## When to Use
 
-- Before Julian socializes a strategic narrative with his boss or CEO
-- After `/strategy:narrative` produces output and Julian has iterated on it
+- Before the user socializes a strategic narrative with his boss or CEO
+- After `/strategy:narrative` produces output and the user has iterated on it
 - Before building a deck from a narrative (catches problems cheaper in prose than in slides)
-- When Julian asks "is this ready?"
+- When the user asks "is this ready?"
 
 ## Process
 
@@ -37,7 +37,7 @@ Quality gate for strategic narratives before they go to stakeholders. Scores on 
 Read in this order:
 1. The original brief (the north star)
 2. The distilled strategic platform (insights, tensions, way in)
-3. The narrative format reference (Julian's quality bar, e.g., Bumble case study)
+3. The narrative format reference (the user's quality bar, e.g., Bumble case study)
 4. The narrative being reviewed
 
 ### Step 2: Spawn the Narrative Reviewer Agent
@@ -46,7 +46,7 @@ Use the `strategy-engine:review:narrative-reviewer` agent. The agent scores on 7
 
 ### Step 3: Synthesize
 
-If the agent returns PASS (50+/70): present the review to Julian with a recommendation to proceed.
+If the agent returns PASS (50+/70): present the review to the user with a recommendation to proceed.
 If REVISE (35-49): present critical issues and suggest specific fixes before resending.
 If FAIL (<35): flag that the narrative needs significant rework. Identify the weakest dimensions.
 
@@ -74,19 +74,19 @@ Output a brief alignment matrix:
 
 ### Step 6: Present Review
 
-Give Julian:
+Give User:
 1. The 7-dimension score table
 2. Critical issues (must fix)
 3. Brief alignment matrix
 4. Voice check results
 5. What's working (don't touch)
 
-Julian decides what to fix and what to override.
+the user decides what to fix and what to override.
 
 ## Integration
 
 ### narrative-review → narrative (revision)
-After Julian addresses the critical issues, re-run the review to verify fixes landed.
+After the user addresses the critical issues, re-run the review to verify fixes landed.
 
 ### narrative-review → courtroom (optional)
 If the Insight Quality or Strategic Courage scores are low, suggest running the narrative's core argument through `/strategy:courtroom` before revising.
@@ -96,4 +96,4 @@ The narrative should PASS review before going into slide production. Building sl
 
 ## Observation
 
-Log the run per `rules/observation.md`. Track: total score, which dimensions were weakest, how many critical issues, whether Julian agreed with the findings.
+Log the run per `rules/observation.md`. Track: total score, which dimensions were weakest, how many critical issues, whether the user agreed with the findings.

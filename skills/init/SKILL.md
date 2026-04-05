@@ -11,6 +11,24 @@ description: |
 
 Set up a new strategy project — local folder, GitHub repo, Next.js app scaffolded with the client's brand.
 
+## Handling Existing Projects
+
+If the user says "use existing repo" or the project folder already exists at `~/strategy-projects/{slug}/`:
+
+1. **Check `site/` state** — run `git log --oneline -3` inside `site/` to understand what's there.
+   - If the latest commit says "Clear all files — archived …, ready for fresh init", the site was intentionally cleared. Proceed with Steps 5–7 only (skip folder creation, context.md, brand research).
+   - If the site has active content, do NOT scaffold — ask the user what they want to do.
+
+2. **Do NOT run `create-next-app`** — the directory already has a `.git` repo. Instead, scaffold all files manually (write each file directly). This avoids the interactive "directory not empty" prompt.
+
+3. **Delete `.next/` before TypeScript check** — `rm -rf site/.next` — stale build artifacts from the old site will generate false type errors.
+
+4. **Git repo is at `site/` level** — commit and push from within `site/`, not from the outer `project-misa/` folder. The outer folder is a local organizer, not a git repo.
+
+5. **Skip GitHub repo creation** — when the user says to use an existing repo, skip Step 6's `gh repo create`. The remote is already set.
+
+---
+
 ## Process
 
 ### Step 1: Get the Client Name and Website
@@ -28,6 +46,31 @@ If no website URL is provided, web search for `{client name} official website` t
 ```bash
 mkdir -p ~/strategy-projects/{slug}/inputs
 mkdir -p ~/strategy-projects/{slug}/outputs
+```
+
+After creating the folders, write the initial `flow-audit.json` to `outputs/`:
+
+```json
+{
+  "projectName": "{Client Name} — {Engagement}",
+  "lastUpdated": "{today's date ISO}",
+  "measurementThread": {
+    "businessOutcomes": [],
+    "insightsWithoutPath": [],
+    "theoryOfChange": null,
+    "leadingIndicators": [],
+    "laggingIndicators": []
+  },
+  "loops": [],
+  "waves": [
+    { "number": 1, "name": "Frame", "ownershipLabel": "Human-led. You articulate. I sharpen.", "status": "not-started", "interactions": [] },
+    { "number": 2, "name": "Gather", "ownershipLabel": "Agent-led. I gather. You decide what matters.", "status": "not-started", "interactions": [] },
+    { "number": 3, "name": "Synthesize Within", "ownershipLabel": "Collaborative. I structure. You call what's interesting.", "status": "not-started", "interactions": [] },
+    { "number": 4, "name": "Synthesize Across", "ownershipLabel": "Human-led. You drive. I develop what you surface.", "status": "not-started", "interactions": [] },
+    { "number": 5, "name": "Strategy Development", "ownershipLabel": "Human-led decisions at every turn. I develop, you author.", "status": "not-started", "interactions": [] },
+    { "number": 6, "name": "Output", "ownershipLabel": "Agent drafts, human authors.", "status": "not-started", "interactions": [] }
+  ]
+}
 ```
 
 ### Step 3: Create project-context.md
@@ -102,6 +145,7 @@ After scaffolding, set up the standard multi-page strategy site architecture:
 - `src/app/(strategy)/hypotheses/page.tsx` — Hypotheses & Provocations + Working Session view
 - `src/app/(strategy)/personas/page.tsx` — **Persona Lab**: multi-persona simultaneous chat, full-height two-column layout, one input fires all personas in parallel. This is the `/personas` index.
 - `src/app/(strategy)/personas/[persona-slug]/page.tsx` — **Individual persona page**: uses `PersonaPageClient`, one file per persona with the full `PersonaDef` data object inline.
+- `src/app/(strategy)/flow-audit/page.tsx` — **Flow Audit**: wave-by-wave progress tracker. Reads from `outputs/flow-audit.json`. Shows ownership label, status, interaction history per wave, measurement thread state, and any loops triggered. Always scaffolded — even if wave-based work hasn't started yet.
 
 **Shell and scratchpad components (copy from `~/strategy-projects/taco-bell/site/src/components/`):**
 - `src/components/StrategyShell.tsx` — sidebar nav + scratchpad state + polling + API persistence
@@ -121,7 +165,7 @@ After scaffolding, set up the standard multi-page strategy site architecture:
 **API path — root-level vs. site/ subdirectory:**
 The `outputs/` path in API routes depends on where the Next.js app lives:
 - **App is in a `site/` subdirectory** (taco-bell pattern): `path.join(process.cwd(), '..', 'outputs')`
-- **App is the repo root** (project-misa pattern): `path.join(process.cwd(), 'outputs')`
+- **App is the repo root**: `path.join(process.cwd(), 'outputs')`
 
 Check whether `package.json` is at the repo root or in a subdirectory before copying the API routes. Wrong path = silent read/write failures.
 
@@ -219,6 +263,7 @@ const NAV_ITEMS: NavItem[] = [
   },
   { label: 'Ecosystem',            href: '/ecosystem-audit' },
   { label: 'Journey',              comingSoon: true },
+  { label: 'Flow Audit',            href: '/flow-audit' },
   {
     label: 'Archive',
     expandable: true,
@@ -229,7 +274,7 @@ const NAV_ITEMS: NavItem[] = [
 ]
 ```
 
-**Nav order is canonical:** Client Brief → Assignment Overview → Secondary Research → Primary Research → Hypotheses → Personas → Strategy Directions → Ecosystem → Journey → Archive. This reflects the linear progression of strategy work.
+**Nav order is canonical:** Client Brief → Assignment Overview → Secondary Research → Primary Research → Hypotheses → Personas → Strategy Directions → Ecosystem → Journey → Flow Audit → Archive. This reflects the linear progression of strategy work. Flow Audit sits near the end because it tracks the full engagement — it's most useful after Wave 2 onward.
 
 **Primary Research:** If primary research was not conducted for this engagement, mark it `disabled: true`. It will appear greyed out in the nav without a hover state or click target.
 
@@ -394,6 +439,45 @@ Each card shows: category color dot + label, section title (serif), description,
 
 ---
 
+---
+
+### Flow Audit Page (`/flow-audit`)
+
+Tracks the wave-by-wave progression of the engagement. The agent writes to `outputs/flow-audit.json`
+during strategy sessions; this page reads that file and renders it.
+
+**Page structure:**
+
+1. **Header** — project name, last updated date, current wave (the most recent `in-progress` wave)
+2. **Measurement Thread panel** — always visible at the top. Shows business outcomes, theory of change, leading/lagging indicators as they get defined. Empty fields show "Not yet defined" in muted text.
+3. **Wave cards** (1–6) — stacked vertically. Each card shows:
+   - Wave number + name
+   - Ownership label (always visible, not collapsed)
+   - Status badge: NOT STARTED / IN PROGRESS / COMPLETE
+   - Interaction history: a list of completed interaction points, each showing step name, handoff type, interaction mode chosen, and any human input
+   - Empty interaction history shows "No interactions yet"
+4. **Loops log** — at the bottom. Shows any recursive loops triggered: type, trigger reason, decision, date. Empty state: "No loops triggered."
+
+**Data source:**
+```typescript
+// fetch from /api/flow-audit, which reads outputs/flow-audit.json
+// same path pattern as scratchpad: path.join(process.cwd(), '..', 'outputs', 'flow-audit.json')
+// if file not found, return the empty initial schema
+```
+
+**Interaction mode display colors:**
+- `pass-through` — gray
+- `shape` — blue
+- `add-input` — green
+- `riff` — purple
+- `override` — orange
+- `pause` — yellow
+
+**API route required:**
+`api/flow-audit/route.ts` — GET reads `outputs/flow-audit.json`, returns parsed JSON. No POST needed from the browser (the agent writes directly to the file during sessions).
+
+---
+
 Each page gets a breadcrumb, a `<ContextNotes sectionId="..." />` block at the top, and content below. No collapsible sub-navigation — sub-sections scroll within the page.
 
 The Primary Research page needs `'use client'` at the top and imports `useEffect`/`useState` to fetch from `/api/primary-research` on mount. The Hypotheses page needs `'use client'` for the hypothesis expand/collapse and view toggle (Hypotheses ↔ Working Session).
@@ -431,7 +515,7 @@ Create `site/src/app/globals.css` CSS variables block with the brand palette:
 Every new strategy site gets password protection out of the box. Copy these files from `~/strategy-projects/taco-bell/site/src/` as the template:
 
 **Files to copy and adapt:**
-- `middleware.ts` — intercepts all requests, checks auth cookie against `SITE_PASSWORD` env var (default: `codeandtheory`). Only `/login` and `/api/auth` are public.
+- `proxy.ts` — intercepts all requests, checks auth cookie against `SITE_PASSWORD` env var (default: `codeandtheory`). Only `/login` and `/api/auth` are public. **Next.js 16 renamed `middleware.ts` to `proxy.ts`** — the exported function must be named `proxy` (not `middleware`).
 - `app/login/page.tsx` — simple password form. Update the brand color on the submit button.
 - `app/api/auth/route.ts` — POST to verify password + set cookie, DELETE to clear cookie (logout).
 - `app/api/settings/password/route.ts` — POST to update `.env.local` locally and issue a refreshed cookie.

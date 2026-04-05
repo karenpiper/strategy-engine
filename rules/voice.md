@@ -7,7 +7,7 @@ These rules apply to ALL output from every mode in the strategy engine. No excep
 ### Layer 1: Voice DNA (always on)
 Source: `~/.claude/voice-dna.md`
 
-Every sentence follows Julian's voice identity:
+Every sentence follows the user's voice identity:
 
 - Contractions always (don't, can't, won't)
 - Short paragraphs (1-3 sentences max)
@@ -29,7 +29,7 @@ Covers: plain language, jargon elimination, directness, strategy-specific banned
 
 ### Banned Phrases (fatal, Layer 1)
 
-See Julian's global CLAUDE.md and voice-dna.md for the full list. The following are common in strategy writing:
+See the user's global CLAUDE.md and voice-dna.md for the full list. The following are common in strategy writing:
 
 - "In today's [anything]"
 - "It's important/worth noting"
@@ -58,7 +58,7 @@ Run the full stop-slop checklist on every draft:
 
 ## Application
 
-**Layer 1 runs on everything:** strategy docs, slide copy, briefs, product specs, pressure test critiques, courtroom synthesis, any prose that reaches Julian.
+**Layer 1 runs on everything:** strategy docs, slide copy, briefs, product specs, pressure test critiques, courtroom synthesis, any prose that reaches the user.
 
 **Layer 2 runs on client-facing output only:** strategy docs, slide copy, briefs. Skills that auto-invoke Layer 2 include it in their required_reading.
 

@@ -2,7 +2,7 @@
 
 **CANONICAL LOCATION: `~/.claude/feedback/strategy/general.md`**
 
-Read the canonical file above. It contains all corrections from Julian, migrated from this file.
+Read the canonical file above. It contains all corrections from the user, migrated from this file.
 Also read: `~/.claude/feedback/global.md` (cross-cutting rules for all skills).
 
 Automated improvements from /strategy:sharpen NEVER override entries in the canonical feedback file.
@@ -36,7 +36,7 @@ const { text, sectionLabel, note, contexts } = src
 
 ## 2026-03-18: Skipped Voice DNA + Stop-Slop quality gate on slide copy
 
-**What happened:** Wrote the strategy doc and scored it (Phase 4), but treated the score as a rubber stamp instead of doing a real line-by-line audit. Then wrote 28 slides of slide-ready copy and presented it without running either quality layer. Julian caught it.
+**What happened:** Wrote the strategy doc and scored it (Phase 4), but treated the score as a rubber stamp instead of doing a real line-by-line audit. Then wrote 28 slides of slide-ready copy and presented it without running either quality layer. the user caught it.
 
 **What was wrong (examples from the slide copy):**
 
@@ -66,13 +66,13 @@ Slide 22 after: "Every interview, validated trigger, and verbatim quote we colle
 Slide 24 before: "A GTM engine where audience intelligence gets sharper with every campaign, every conversation, every market shift."
 Slide 24 after: "Audience intelligence that gets sharper with use. Where the next campaign starts smarter than the last one ended."
 
-**The rule:** Both quality layers (Voice DNA + Stop-Slop) must be run line-by-line on every piece of prose BEFORE presenting to Julian. The Phase 4 quality gate in the skill is mandatory, not decorative. This applies to strategy docs AND slide copy. No exceptions.
+**The rule:** Both quality layers (Voice DNA + Stop-Slop) must be run line-by-line on every piece of prose BEFORE presenting to the user. The Phase 4 quality gate in the skill is mandatory, not decorative. This applies to strategy docs AND slide copy. No exceptions.
 
 ---
 
 ## 2026-03-20: Statement and belief slides had too much body copy
 
-**What happened:** Slides 02 (The Opportunity, red bg) and 03 (The Belief, white bg) each had 3+ sentences of body copy beneath the headline. Julian flagged them as too dense for the slide type. These are statement slides where the headline carries the argument. The body should support, not repeat or expand.
+**What happened:** Slides 02 (The Opportunity, red bg) and 03 (The Belief, white bg) each had 3+ sentences of body copy beneath the headline. the user flagged them as too dense for the slide type. These are statement slides where the headline carries the argument. The body should support, not repeat or expand.
 
 **The rule:** For statement slides (red bg, dark bg) and belief slides (white bg with a single declarative headline): **max 2 sentences of body copy.** The headline does the work. The body adds one layer of context or evidence. If you're writing a third sentence, the slide is doing too much. Move the extra content to the next slide or cut it.
 

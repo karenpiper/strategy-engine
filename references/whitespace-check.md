@@ -92,4 +92,4 @@ If NOT: what would need to change in the brief to get there?
 | Defensibility | Structural barriers protect the positioning for 2+ years. | 12-month head start on key claims. | 6-month window before competitors close the gap. | No barriers. |
 | Specificity | The whitespace is named, mapped, and traceable to product/audience decisions. | Whitespace identified but vaguely bounded. | "We think this is unique" without competitive proof. | No whitespace analysis performed. |
 
-**Threshold: 7/10 on each dimension.** Below 7 on Uniqueness = rewrite the proposition. Below 7 on Defensibility = flag the timeline risk to Julian.
+**Threshold: 7/10 on each dimension.** Below 7 on Uniqueness = rewrite the proposition. Below 7 on Defensibility = flag the timeline risk to the user.

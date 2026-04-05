@@ -25,7 +25,7 @@ Ecosystem analysis engine. Discovers how a brand shows up across every channel, 
 ## Philosophy
 
 1. **Discovery before judgment.** Map the full ecosystem before evaluating it. Audit what's actually there, not what the brand thinks is there.
-2. **Scored, not curated.** Every finding gets a severity score. The report surfaces critical issues first. Julian decides what to act on.
+2. **Scored, not curated.** Every finding gets a severity score. The report surfaces critical issues first. the user decides what to act on.
 3. **Friction is the enemy.** A gap is absence. Friction is presence that actively harms. Friction is worse than a gap — flag it first.
 4. **Persona-grounded.** Ecosystem analysis is only as useful as the personas it serves. A channel that works for Margaret Osei and breaks for Jordan Park is a problem worth naming specifically.
 5. **Proof of claim.** Every finding needs a specific example. "Website messaging is inconsistent" is not a finding. "The homepage says X and the product page says the opposite" is a finding.
@@ -68,6 +68,70 @@ Use when: testing how the ecosystem serves specific audiences, validating person
 ### Workflow D: Competitive Ecosystem Positioning
 Mapper runs on 2-3 competitors. Auditor compares channel presence and quality.
 Use when: competitive brief, relaunch planning, gap-in-market analysis.
+
+### Workflow F: Competitive Positioning Analysis
+Maps how competitors position themselves strategically — not just where they show up, but what they claim, what they stand for, and where the white space is.
+
+Use when:
+- Building a competitive brief for a repositioning engagement
+- Wave 2 competitive workstream requires a positioning read, not just a channel audit
+- The client question is "where does our brand have room to play?" not "which channels are we missing?"
+
+**This workflow produces a positioning map, not a channel map.** It runs the Mapper and Auditor but reads for strategic claims, not content health.
+
+**What it analyzes per competitor:**
+1. **Positioning claim** — what the brand fundamentally says it is (the mission or value prop at the top of the messaging hierarchy)
+2. **Audience signal** — who the brand appears to be talking to based on language, imagery, and channel choices
+3. **Proof architecture** — what evidence the brand uses to support its claim (case studies, data, testimonials, certification, awards)
+4. **Tone territory** — what emotional register the brand occupies (expert authority, peer-level warmth, challenger urgency, institutional credibility, etc.)
+5. **Category convention** — is the brand playing inside the category conventions or against them?
+6. **Owned idea** — does the brand have a coined concept, named methodology, or proprietary frame? What is it?
+
+**Output format:**
+
+```markdown
+## Competitive Positioning Map: [Category]
+
+### Category Conventions
+[3–5 claims or visual/tonal patterns that virtually every player in the category makes. These are the conventions the client must decide to follow or break.]
+
+### Competitor Profiles
+
+**[Competitor Name]**
+- Positioning claim: [Core claim in their own words — quote directly from their site if possible]
+- Audience signal: [Who are they clearly talking to?]
+- Proof architecture: [What do they use as evidence?]
+- Tone territory: [One-phrase descriptor — e.g., "confident authority," "relatable challenger"]
+- Owned idea: [Named methodology or concept, if any]
+- Convention adherence: [In / Partially In / Against — with rationale]
+
+*(Repeat for each competitor)*
+
+### Positioning Map
+[2×2 or spectrum visual in text form showing how competitors cluster]
+
+Axis options (pick the two most revealing for this category):
+- Functional ↔ Emotional
+- Specialist ↔ Generalist  
+- Institutional ↔ Human
+- Challenger ↔ Establishment
+- Rational ↔ Cultural
+
+### White Space
+[Positioning territory that no competitor is credibly owning. Stated as a specific claim, not a generic "opportunity."]
+- **White space 1:** [What could be claimed, why it's unoccupied, what it would require to own it]
+- **White space 2:** [Same structure]
+
+### Competitor Vulnerabilities
+[For each main competitor: the specific gap in their positioning that a well-placed challenger could exploit]
+
+### Strategic Implications for [Client]
+[3–5 implications for the client's positioning given this competitive landscape. Lead with the most counter-intuitive one.]
+```
+
+**Integration with Wave 2:** When running inside the competitive workstream, hand the Competitive Positioning Map to `/strategy:insight-distill` (Mode B) for workstream synthesis before moving to Wave 3.
+
+---
 
 ### Workflow E: Buyer-Channel Gap Analysis
 Takes the brand's existing ecosystem map and a set of personas or a strategic brief, then maps where buyers actually are in their evaluation journey vs. where the brand has presence. The output is a gap matrix: moments where buyers are active and the brand is absent, moments where the brand is present but buyers aren't evaluating, and moments of actual overlap.

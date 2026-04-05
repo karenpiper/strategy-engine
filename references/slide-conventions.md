@@ -6,7 +6,7 @@ Formatting rules, structural labels, and layout annotation system for slide-read
 
 ## Structural Labels
 
-These are the labeled section headers used in Julian's strategy decks. They appear as eyebrow text above the main headline, typically in a lighter weight or serif typeface.
+These are the labeled section headers used in the user's strategy decks. They appear as eyebrow text above the main headline, typically in a lighter weight or serif typeface.
 
 ### Core Labels (used across engines)
 
@@ -61,7 +61,7 @@ These are the labeled section headers used in Julian's strategy decks. They appe
 2. **Structural labels use the label conventions above.** Italic serif is the design choice; in markdown output, indicate labels with the format: `*The Challenge*` or `[eyebrow: The Challenge]`.
 3. **Headlines are short declarative sentences.** One idea per headline. If you need a comma, you probably need two slides.
 4. **Body copy is 1-3 sentences max.** If a section needs more, it's doing two jobs. Split it.
-5. **Accent words get called out.** In Julian's decks, 1-2 words per slide are highlighted in a brand accent color. In slide-ready output, indicate these with bold: **word**.
+5. **Accent words get called out.** In the user's decks, 1-2 words per slide are highlighted in a brand accent color. In slide-ready output, indicate these with bold: **word**.
 6. **No em dashes.** Use commas, periods, colons, or parentheses.
 7. **Contractions always.** "Don't" not "do not." "Can't" not "cannot."
 8. **Numbers as digits.** "67%" not "sixty-seven percent."

@@ -300,6 +300,6 @@ MIT. Fork it, adapt it, make it yours.
 
 <div align="center">
 
-Built by [Julian Alexander](https://github.com/Julianlapis). Sharpened through hundreds of strategy sessions.
+Sharpened through hundreds of strategy sessions.
 
 </div>
